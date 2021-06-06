@@ -308,12 +308,13 @@
                           thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
                           thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
 
-                          ankle_work = 0;
+                          ankle_work = 1;
 
                           thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
 
                           totalftlbs = thigh_work_weight + thigh_work_leg;
                           KJlifted = (1.35582 * totalftlbs) / 1000;
+                          
 
                           document.getElementById("result1").innerHTML = Math.round(totalftlbs);
                           document.getElementById("result2").innerHTML = Math.round(KJlifted);
