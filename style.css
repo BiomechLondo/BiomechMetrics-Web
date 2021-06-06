@@ -1,0 +1,105 @@
+* {
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.weight {
+    float: right;
+    font-size: 40%;
+    margin-right: 150vh;
+    background-color: rgb(104, 143, 216);
+    
+}
+
+.Reps {
+    float: right;
+    font-size: 40%;
+    margin-right: 150vh;
+    background-color: rgb(104, 143, 216);
+    
+}
+
+.enter {
+    padding-bottom: 4rem;
+    padding-top:  4rem;
+    font-size: 60%;
+    margin-right: 100vh;
+    background-color: darkgrey;
+
+}
+
+.count {
+    padding-top: 3rem;
+}
+
+
+.p1 {
+    padding-top: 3rem;
+    font-weight: 200;
+    font-style: oblique;
+    font-size: large;
+    color: crimson;
+}
+
+.h1 {
+    font-size: medium;
+    width: 5%;
+    font-style: italic;
+    padding-left: 4rem;
+    background-size: 10%;
+    align-content: center;
+    margin-left: 25rem;
+}
+
+input{
+    margin-left: 5rem;
+    height: 2rem;
+    width: 5%;
+}
+
+iframe {
+    align-content: center;
+    margin-left: 25rem;
+}
+
+.bodymass {
+
+    margin-top: -8rem;
+    float: right;
+    background-color: rgb(211, 102, 102);
+    font-size: medium;
+    font-style: sans-serif, bold;
+    width: 15%;
+    margin-bottom: 10rem;
+    font-style: oblique;
+    border-radius: 20px;
+    text-align: center;
+    margin-right: 5rem;
+
+}
+
+.result {
+    color: black;
+}
+
+img {
+    float: right;
+    background-color: rgb(202, 79, 79);
+    border-radius: bold;
+    
+}
+
+.in-headings {
+    background-color: black;
+    height: 50%;
+    font-weight: 400;
+    color: blanchedalmond;
+}
+
+

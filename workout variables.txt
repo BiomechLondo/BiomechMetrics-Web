@@ -1,0 +1,15 @@
+ var Hamstring_Curl = parseFloat(document.getElementById('Hcurl').value);   
+            var Laying_Leg_Raise = parseFloat(document.getElementById('LyLegRaise').value);
+            var Flat_Barb_Bench = parseFloat(document.getElementById('FlatBBench').value);
+            var Tricep_Pushdown = parseFloat(document.getElementById('TriPush').value);
+            var Body_Dips = parseFloat(document.getElementById('Dips').value);
+            var Trap_Deadlifts = parseFloat(document.getElementById('TDeadlift').value);
+            var SingleLegDBSquat = parseFloat(document.getElementById('SLDBsquat').value);
+            var SingleLegPress = parseFloat(document.getElementById('SLLP').value);
+            var DBLunge = parseFloat(document.getElementById('DBWalkLunge').value);
+            var LegExt = parseFloat(document.getElementById('LegExt').value);
+            var LegRaiseHang = parseFloat(document.getElementById('HangLegRaise').value);
+            var TricepExtOVH = parseFloat(document.getElementById('OVHTricepExt').value);
+            var BBsquat = parseFloat(document.getElementById('BBSquat').value);
+            var DBStep_up = parseFloat(document.getElementById('DBStep').value);
+            var LegCurls = parseFloat(document.getElementById('SeatLegCurl').value);

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+    
+        
+        <title> Work Exerted Calculator</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Lift Right</title>
+
+        <script>
+            
+            function Work()     //Calculates the users lean body mass
+            {
+                var Gender = parseFloat(document.getElementById('Gender').value);
+                var weight = parseFloat(document.getElementById('n9').value);  
+                var Thigh = parseFloat(document.getElementById('Thigh').value);  
+                var leglow = parseFloat(document.getElementById('lowleg').value);   
+                var Forearm = parseFloat(document.getElementById('flength').value);   
+                var torso = parseFloat(document.getElementById('n7').value);    
+                var height = parseFloat(document.getElementById('n8').value);
+                
+
+
+                if (Gender = "Male") {
+                    LBM = (weight * 1.082) +94.42 - (waist_measrement*4.15);
+                    LBMP = (LBM / weight) * 100;
+                    BFM = weight - LBM;
+                    BFMP = (BFM/weight) * 100;
+                    LTFR = LBM/BFM;
+
+                }else if(Gender = "Female"){ 
+    
+                    LBM = (weight * 0.732) + 8.987 + (Wrist/3.14) - (Hip*0.249) + (Forearm*0.434);
+                    LBMP = (LBM / weight) * 100;
+                    BFM = weight - LBM;
+                    BFMP = (BFM/weight) * 100;
+                    LTFR = LBM/BFM;
+                }   
+
+                document.getElementById("result1").innerHTML = Math.round(LBM);
+                document.getElementById("result2").innerHTML = Math.round(LBMP);
+                document.getElementById("result3").innerHTML = Math.round(BFM);
+                document.getElementById("result4").innerHTML = Math.round(BFMP);
+                document.getElementById("result5").innerHTML = Math.round(LTFR);
+                return false;
+                
+                
+                //var release = 2.27;
+                //var flexion =  .52;
+                    //document.getElementById('forearm_weight').value = .013*n3; 
+                
+                    //document.getElementById('result').value = n1/n2;
+
+                
+                
+            }
+            
+        </script>
+
+<div class="measurement"></div>
+    <p1>Select Gender</p1>
+    <form action="/action_page.php">
+        <select name="n3" id="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>  
+    </form>
+    <p1>Thigh Length</p1>
+    <input type="text" id="Thigh" name="Thigh"/><br/><br>
+    <p1>Lower Leg Length (in)</p1>
+    <input type="text" id="lowleg" name="lowleg"/><br/><br>
+    <p1>Forearm_length</p1>
+    <input type="text" id="flength"/><br/><br>
+    <p1>Height (inches)</p1>
+    <input type="text" id="n8"/><br/><br>
+    <p1>Weight (lbs)</p1>
+    <input type="text" id="n9" name="n9"/><br/><br>
+
+    <input type="button" value="Solve" onClick="Work()">
+
+</div>

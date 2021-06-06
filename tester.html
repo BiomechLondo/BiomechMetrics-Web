@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html>
+    
+        
+        <title> Work Exerted Calculator</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Lift Right</title>
+        
+
+        <!--<link rel="stylesheet" href="style.css">-->
+        
+        <script>
+            
+            function Lean_Body_Mass()     //Calculates the users lean body mass
+            {
+                var Gender = parseFloat(document.getElementById('Gender').value);  //gender(Store this value permanent)
+                var weight = parseFloat(document.getElementById('n9').value);  //body weight(store this value)
+                var waist_measrement = parseFloat(document.getElementById('n4').value);  //waist measurement (store this value)
+                var Hip = parseFloat(document.getElementById('n5').value);   //Hip Measurement(store this value)
+                var Wrist = parseFloat(document.getElementById('n6').value);   //Wrist Measurement (store this value)
+                var Forearm = parseFloat(document.getElementById('n7').value);   //Forearm Diameter Measurement(store this value)
+                var Height = parseFloat(document.getElementById('n8').value);   //Height(store this value permanent)
+                
+
+
+                if (Gender = "Male") {
+                    LBM = (weight * 1.082) +94.42 - (waist_measrement*4.15);
+                    LBMP = (LBM / weight) * 100;
+                    BFM = weight - LBM;
+                    BFMP = (BFM/weight) * 100;
+                    LTFR = LBM/BFM;
+
+                }else if(Gender = "Female"){ 
+    
+                    LBM = (weight * 0.732) + 8.987 + (Wrist/3.14) - (Hip*0.249) + (Forearm*0.434);
+                    LBMP = (LBM / weight) * 100;
+                    BFM = weight - LBM;
+                    BFMP = (BFM/weight) * 100;
+                    LTFR = LBM/BFM;
+                }   else if (Gender = "Other") {
+                    LBM = 0;
+                }
+
+                document.getElementById("result1").innerHTML = Math.round(LBM);
+                document.getElementById("result2").innerHTML = Math.round(LBMP);
+                document.getElementById("result3").innerHTML = Math.round(BFM);
+                document.getElementById("result4").innerHTML = Math.round(BFMP);
+                document.getElementById("result5").innerHTML = Math.round(LTFR);
+                return false;
+                
+                
+                
+            }
+            
+        </script>
+        
+    
+    <body>
+
+        <div class="in-headings">
+            <div class="word"><p2>Age</p2></div>
+            <input type="text" id="n2" name="n2"/><br/><br>
+            <p1>Select Gender</p1>
+            <form action="/action_page.php">
+                <select name="n3" id="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>  
+            </form>
+            <p1>Waist Measurement (in)</p1><br>
+            <input type="text" id="n4" name="n4"/><br/><br>
+            <p1>Hip Measurement (Female Only)</p1><br>
+            <input type="text" id="n5"/><br/><br>
+            <p1>Wrist Measurement (Female Only)</p1><br>
+            <input type="text" id="n6"/><br/><br>
+            <p1>Forearm diameter (Female Only)</p1><br>
+            <input type="text" id="n7"/><br/><br>
+            <p1>Height (inches)</p1><br>
+            <input type="text" id="n8"/><br/><br>
+            <p1>Weight (lbs)</p1><br>
+            <input type="text" id="n9" name="n9"/><br/><br>
+
+            <input type="button" value="Solve" onClick="Lean_Body_Mass()">
+
+        </div>
+
+        <div class="carousel-image">
+            <img src="pic/BFMeasure.PNG"/>
+        </div>
+
+        
+        <div class="bodymass">
+            <p2>Lean Body Mass</p2>        
+            <p id="result1" name="r1">
+                <br />
+            </p>
+
+            <p2>Lean Body Mass %</p2>   
+            <p id="result2" name="r2">
+                <br />
+            </p>
+
+            <p2>Body Fat Mass</p2>
+            <p id="result3" name="r3">
+                <br />
+            </p>
+
+            <p2>Body Fat Mass %</p2>
+            <p id="result4" name="r4">
+                <br />
+            </p>
+
+            <p2>Lean Mass to Body Fat Ratio</p2>
+            <p id="result5" name="r5">
+                <br />
+            </p>
+        </div>
+
+
+        <div class="what-if">
+            <h1>Now Lets See What Your Body Can Achieve in just a Matter of Weeks</h1>
+        
+            <p1>How many Weeks Do You Want to Train?</p1><br>
+            <input type="text" id="n10" name="n10"/><br/><br>
+        
+            <script>
+                function whatif()
+                {
+        
+                 var Weeks = parsefloat(document.getElementById('n10').value);
+                 var Current_Fat = parsefloat(document.getElementById("result3").value);
+                 var Current_Lean = parsefloat(document.getElementById("result1").value);
+                 var weight2 = parsefloat(document.getElementById('n9').value);
+                 var percent = Current_Fat/weight2;
+                 var over = 1.08*Weeks;
+                 var mid = .0042*Weeks;
+                 var low = .0021*Weeks;
+        
+                  if(percent >= .25)
+                 {
+                    Future_Body_Fat = Current_Fat -(Weeks*over);
+                
+        
+                 }else if(percent < .25 && percent > .15){
+                    Future_Body_Fat = Current_Fat -(Weeks*mid);
+                
+        
+                 }else{
+                    Future_Body_Fat  = Current_Fat-(Weeks*low);
+                 }
+
+                 document.getElementById("result6").innerHTML = Math.round(Future_Body_Fat);
+                }
+            </script>
+        
+            <input type="button" value="Future" onClick="whatif()">
+        </div>
+
+        <div class="FutureMass">
+            <p2>Future Body Fat</p2>        
+            <p id="result6" name="r6">
+                <br />
+            </p>
+        </div>
+        
+
+
+
+        <style>* {
+            font-family: 'Raleway', sans-serif;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        
+        .weight {
+            float: right;
+            font-size: 40%;
+            margin-right: 150vh;
+            background-color: rgb(104, 143, 216);
+            
+        }
+        
+        .Reps {
+            float: right;
+            font-size: 40%;
+            margin-right: 150vh;
+            background-color: rgb(104, 143, 216);
+            
+        }
+        
+        .enter {
+            padding-bottom: 4rem;
+            padding-top:  4rem;
+            font-size: 60%;
+            margin-right: 100vh;
+            background-color: darkgrey;
+        
+        }
+        
+        .count {
+            padding-top: 3rem;
+        }
+        
+        
+        .in-hedings .p1 {
+            padding-top: 3rem;
+            font-weight: 200;
+            font-style: oblique;
+            font-size: large;
+            color: rgb(151, 238, 37);
+        }
+        
+        .h1 {
+            font-size: medium;
+            width: 5%;
+            font-style: italic;
+            padding-left: 4rem;
+            background-size: 10%;
+            align-content: center;
+            margin-left: 25rem;
+        }
+        
+        input{
+            height: 2rem;
+            width: 15%;
+        }
+        
+        iframe {
+            align-content: center;
+            margin-left: 25rem;
+        }
+        
+        .bodymass {
+        
+            margin-top: 0rem;
+            background-color: rgb(211, 102, 102);
+            font-size: medium;
+            font-style: sans-serif, bold;
+            margin-bottom: 10rem;
+            font-style: oblique;
+            border-radius: 20px;
+            margin-right: 5rem;
+            width: 25%;
+            
+        
+        }
+        
+        .result {
+            color: black;
+            background-size: cover;
+            width: 50%;
+        }
+        
+        .in-headings {
+            background-color: black;
+            height: 50%;
+            font-weight: 400;
+            color: blanchedalmond;
+            border-radius: 20px;
+            width: 40%;
+        }
+
+        
+
+        .carousel-image {
+            float: right;
+            size: 40vh;
+            margin-top: -20rem;
+        }
+
+        
+        </style>
+
+       
+    </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Space Clicker</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lift Right</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="exercise">
+    <h1>Select Workout</h1>
+    <form action="/action_page.php">
+        <select name="exercises" id="exercises">
+            <option value="squat">Squat</option>
+            <option value="dips">Dips</option>
+            <option value="bench">Bench</option>
+            <option value="count">Shoulder Press</option>
+        </select>  
+    </form>
+    <script type="text/javascript">
+        var clicks =0;
+        function myfunction() {
+            clicks += 1;
+            document.getElementById("clicks").innerHTML = clicks;
+        }
+        
+    
+    </script>
+</div>
+
+<div class="weight">
+    <h1>Select Weight</h1>
+    <form action="/action_page.php">
+        <select name="Reps" id="count">
+            <option>1</option>
+            <option value="count">2</option>
+            <option value="count">3</option>
+            <option value="count">4</option>
+            <option value="count">5</option>
+            <option value="count">7.5</option>
+            <option value="count">8</option>
+            <option value="count">10</option>
+            <option value="count">15</option>
+            <option value="count">20</option>
+            <option value="count">25</option>
+            <option value="count">27.5</option>
+            <option value="count">30</option>
+            <option value="count">35</option>
+            <option value="count">40</option>
+            <option value="count">45</option>
+            <option value="count">50</option>
+            <option value="count">55</option>
+            <option value="count">60</option>
+            <option value="count">65</option>
+            <option value="count">70</option>
+            <option value="count">75</option>
+            <option value="count">80</option>
+            <option value="count">85</option>
+            <option value="count">90</option>
+            <option value="count">95</option>
+            <option value="count">100</option>
+            <option value="count">105</option>
+            <option value="count">110</option>
+            <option value="count">115</option>
+            <option value="count">120</option>
+            <option value="count">130</option>
+            <option value="count">135</option>
+            <option value="count">140</option>
+            <option value="count">145</option>
+            <option value="count">150</option>
+            <option value="count">155</option>
+            <option value="count">160</option>
+            <option value="count">165</option>
+            <option value="count">170</option>
+            <option value="count">175</option>
+            <option value="count">180</option>
+            <option value="count">185</option>
+            <option value="count">190</option>
+            <option value="count">195</option>
+            <option value="count">200</option>
+            <option value="count">205</option>
+            <option value="count">210</option>
+            <option value="count">215</option>
+            <option value="count">220</option>
+            <option value="count">225</option>
+            <option value="count">230</option>
+            <option value="count">235</option>
+            <option value="count">240</option>
+            <option value="count">245</option>
+            <option value="count">250</option>
+            <option value="count">255</option>
+            <option value="count">260</option>
+            <option value="count">265</option>
+            <option value="count">270</option>
+            <option value="count">275</option>
+            <option value="count">280</option>
+            <option value="count">285</option>
+            <option value="count">290</option>
+            <option value="count">295</option>
+            <option value="count">300</option>
+            <option value="count">305</option>
+            <option value="count">310</option>
+            <option value="count">315</option>
+            <option value="count">320</option>
+            <option value="count">325</option>
+            <option value="count">330</option>
+            <option value="count">335</option>
+            <option value="count">340</option>
+            <option value="count">345</option>
+            <option value="count">350</option>
+        </select>  
+    </form>
+    <script type="text/javascript">
+        var clicks =0;
+        function myfunction() {
+            clicks += 1;
+            document.getElementById("clicks").innerHTML = clicks;
+        }
+        
+    
+    </script>
+</div>
+
+<div class="Reps">
+    
+    
+        
+    
+</div>
+<div id="count"> 
+
+    <h1>Reps</h1>
+    <input type="text" id="number" />
+    <h2> Reps Completed Sucessfully </h2>
+    <script type="text/javascript">
+        var checkbox = document.createElement("input");
+    </script>  
+    <button onClick="myfunction()">Click Me</button>
+    <p id="clicks">0</p>
+
+    <script type="text/javascript">
+        var clicks =0;
+        
+        function myfunction() {
+            clicks += 1;
+            document.getElementById("clicks").innerHTML = clicks;
+        }
+
+        
+    
+    </script>
+    
+    
+
+    <script>
+        
+        function myaccuracy() 
+        
+        {
+            var num1 = document.getElementById('number').value;
+            var num2 = document.getElementById("clicks").value;
+
+            var result = getElementById('result').value = num2/num1;
+
+
+
+            
+        }
+    </script>
+</div>
+
+
+
+<button onclick="myaccuracy()">=</button>
+
+</body>
+</html>
