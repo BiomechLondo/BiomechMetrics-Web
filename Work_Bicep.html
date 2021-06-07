@@ -25,7 +25,9 @@
             var forearmweight = .013*bodyweight;
             var torso_length = parseFloat(document.getElementById('n10').value)
             var pi = Math.PI;
-            var Age = parseFloat(document.getElementById('n2').value)
+            var Age = parseFloat(document.getElementById('n2').value);
+            var Sets = parseFloat(document.getElementById('Sets').value);
+            var Rep =  parseFloat(document.getElementById('reps').value);
         
             function  check() {
 
@@ -206,10 +208,11 @@
 
                         totalftlbs = thigh_work_weight + thigh_work_leg;
                         KJlifted = (1.35582 * totalftlbs) / 1000;
+                        Kcal = KJlifted/4.814
 
                         document.getElementById("result1").innerHTML = Math.round(totalftlbs);
                         document.getElementById("result2").innerHTML = Math.round(KJlifted);
-
+                        document.getElementById("result3").innerHTML = Math.round(Kcal);
 
                 }
 
@@ -219,9 +222,11 @@
 
                         totalftlbs = bicep_work_arm + bicep_work_arm;
                         KJlifted = (1.35582 * totalftlbs) / 1000;
+                        Kcal = KJlifted/4.814
 
                         document.getElementById("result1").innerHTML = Math.round(totalftlbs);
                         document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                        document.getElementById("result3").innerHTML = Math.round(Kcal);
 
                 }    
                     if  (exercise = 'Single Leg DB Squat'){
@@ -238,9 +243,12 @@
 
                           totalftlbs = thigh_work_weight + thigh_work_leg;
                           KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
+                          
 
                           document.getElementById("result1").innerHTML = Math.round(totalftlbs);
                           document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
                 }
 
                 if  (exercise = 'Single Leg Leg Press'){
@@ -257,9 +265,11 @@
 
                           totalftlbs = thigh_work_weight + thigh_work_leg;
                           KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
 
                           document.getElementById("result1").innerHTML = Math.round(totalftlbs);
                           document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
                 }          
 
                 if  (exercise = 'DB Walking Lunges'){
@@ -276,9 +286,11 @@
 
                           totalftlbs = thigh_work_weight + thigh_work_leg;
                           KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
 
                           document.getElementById("result1").innerHTML = Math.round(totalftlbs);
                           document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
                 }
                 
                 if  (exercise = 'Barbell Squat'){
@@ -295,9 +307,11 @@
 
                           totalftlbs = thigh_work_weight + thigh_work_leg;
                           KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
 
                           document.getElementById("result1").innerHTML = Math.round(totalftlbs);
                           document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
                 }
 
                 if  (exercise = 'DB Step Up'){
@@ -308,16 +322,18 @@
                           thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
                           thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
 
-                          ankle_work = 1;
+                          ankle_work = 0;
 
                           thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
 
                           totalftlbs = thigh_work_weight + thigh_work_leg;
                           KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
                           
 
                           document.getElementById("result1").innerHTML = Math.round(totalftlbs);
                           document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
                 }
 
 
@@ -361,18 +377,26 @@
 
          <p1>Elbow to Middle Palm Measurement (in)</p1><br/>
          <input type="number" id="forearm"/><br/><br/>
-        </div>
+        
 
-        <p1>Torso Length</p1><br/>
-        <input type="number" id="torso"/><br/><br/>
+         <p1>Torso Length</p1><br/>
+         <input type="number" id="torso"/><br/><br/>
        </div>
 
         <div class="dimensions Lower">
-        <p1>Thigh (in)</p1><br/>
-        <input type="number" id="femur"/><br/><br/>
+         <p1>Thigh (in)</p1><br/>
+         <input type="number" id="femur"/><br/><br/>
 
-        <p1>Lower Leg (in)</p1><br/>
-        <input type="number" id="tibia"/><br/><br/>
+         <p1>Lower Leg (in)</p1><br/>
+         <input type="number" id="tibia"/><br/><br/>
+        </div>
+        
+        <div class="Repititions">
+            <p1>Number of Reps</p1><br/>
+            <input type="number" id="reps"/><br/><br/>
+
+            <p1>Number of Sets</p1><br/>
+            <input type="number" id="Sets"/><br/><br/>
         </div>
     </div>
 
@@ -401,12 +425,19 @@
             <input type="button" value="Solve" onClick="Exercise_Work()">
     </div>
 
-    <div class="bodymass">       
+    <div class="bodymass"> 
+        <p1>Total Torque Exerted by your Joints</p1>      
         <p id="result1" name="r1">
             <br />
         </p>
 
-        <p id="result2" name="r2">
+        <p1>Total Calories Burned</p1>    
+        <p id="result3" name="r3">
+            <br />
+        </p>
+
+        <p1>Calories Burned Per Set</p1>      
+        <p id="result4" name="r4">
             <br />
         </p>
     </div>    
