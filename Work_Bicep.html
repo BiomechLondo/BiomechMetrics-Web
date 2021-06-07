@@ -10,368 +10,10 @@
 </head>
 
 <body>
-    <script>         
-        function Exercise_Work()     //Calculates the work exerted to perform each exercise
-        {
-           
-            var pi = Math.PI;
-            var bodyweight = parseFloat(document.getElementById('n9').value);  
-            var thigh_measrement = parseFloat(document.getElementById('femur').value);  
-            var lowerleg_measrement = parseFloat(document.getElementById('tibia').value);   
-            var bicep_measrement = parseFloat(document.getElementById('humerus').value);   
-            var Forearm = parseFloat(document.getElementById('forearm').value);   
-            var exercise = parseFloat(document.getElementById('exercises').value);
-            var weightlifted = parseFloat(document.getElementById('n10').value);
-            var forearmweight = .013*bodyweight;
-            var torso_length = parseFloat(document.getElementById('n10').value)
-            var pi = Math.PI;
-            var Age = parseFloat(document.getElementById('n2').value);
-            var Sets = parseFloat(document.getElementById('Sets').value);
-            var Rep =  parseFloat(document.getElementById('reps').value);
-        
-            function  check() {
 
-                if(Gender = "Male" && 2 <= Age <= 8){
-
-                    knee_range = 146 * (pi/180);
-                    knee_ext = 2;
-                    knee_flex = 148;
-                    elbow_range = 149 * (pi/180);
-                    elbow_ext = 2;
-                    elbow_flex = 151;
-                    hip_range = 159 * (pi/180);
-                    hip_ext = -28;
-                    hip_flex =131;
-                    ankle_range = 79 * (pi/180);
-                    ankle_ext = 56;
-                    ankle_flex = -23;
-                    torso_weight = .483 * bodyweight;
-                    thigh_weight = .105 * bodyweight;
-                    headweight = .071 * bodyweight;
-                    lowerleg_weight = .045 * bodyweight;
-
-                }
-
-                if(Gender = "Male" && 9 <= Age <= 19){
-
-                    knee_range = 144 * (pi/180);
-                    knee_ext = 2;
-                    knee_flex = 142;
-                    elbow_range = 148 * (pi/180);
-                    elbow_ext = 5;
-                    elbow_flex = 151;
-                    hip_range = 153 * (pi/180);
-                    hip_ext = -18;
-                    hip_flex =135;
-                    ankle_range = 68 * (pi/180);
-                    ankle_ext = 53;
-                    ankle_flex = -16;
-                    torso_weight = .483 * bodyweight;
-                    thigh_weight = .105 * bodyweight;
-                    headweight = .071 * bodyweight;
-                    lowerleg_weight = .045 * bodyweight;
-
-                }
-
-                if  (Gender = "Male" && 20 <= Age <= 44){
-                    knee_range = 137 * (pi/180);
-                    knee_ext = 1;
-                    knee_flex = 142;
-                    elbow_range = 144 * (pi/180);
-                    elbow_ext = 1;
-                    elbow_flex = 145;
-                    hip_range = 147 * (pi/180);
-                    hip_ext = -17;
-                    hip_flex =130;
-                    ankle_range = 67 * (pi/180);
-                    ankle_ext = 55;
-                    ankle_flex = -13;
-                    torso_weight = .483 * bodyweight;
-                    thigh_weight = .105 * bodyweight;
-                    headweight = .071 * bodyweight;
-                    lowerleg_weight = .045 * bodyweight;
-                }
-                
-
-                if(Gender = "Male" && 45 <= Age <= 69){
-                    knee_range = 132 * (pi/180);
-                    knee_ext = 1;
-                    knee_flex = 133;
-                    elbow_range = 143 * (pi/180);
-                    elbow_ext = 1;
-                    elbow_flex = 144;
-                    hip_range = 140 * (pi/180);
-                    hip_ext = -14;
-                    hip_flex =127;
-                    ankle_range = 61 * (pi/180);
-                    ankle_ext = 49;
-                    ankle_flex = -12;
-                    torso_weight = .483 * bodyweight;
-                    thigh_weight = .105 * bodyweight;
-                    headweight = .071 * bodyweight;
-                    lowerleg_weight = .045 * bodyweight;
-
-                }
-
-                if (Gender = "Female" && 2 <= Age <= 8)
-                    knee_range = 148 * (pi/180);
-                    knee_ext = 1;
-                    knee_flex = 133;
-                    elbow_range = 146 * (pi/180);
-                    elbow_ext = 1;
-                    elbow_flex = 144;
-                    hip_range = 167 * (pi/180);
-                    hip_ext = -14;
-                    hip_flex =127;
-                    ankle_range = 92 * (pi/180);
-                    ankle_ext = 49;
-                    ankle_flex = -12;
-                    thigh_weight = .083 * bodyweight;
-                    headweight = .094 * bodyweight;
-                    lowerleg_weight = .055 * bodyweight;
-                    torso_weight = .508 * bodyweight;
-
-                }
-
-                if (Gender = "Female" && 9 <= Age <= 19){
-                    knee_range = 140 * (pi/180);
-                    knee_ext = 2;
-                    knee_flex = 142;
-                    elbow_range = 144 * (pi/180);
-                    elbow_ext = 6;
-                    elbow_flex = 150;
-                    hip_range = 156 * (pi/180);
-                    hip_ext = -21;
-                    hip_flex =135;
-                    ankle_range = 74 * (pi/180);
-                    ankle_ext = 57;
-                    ankle_flex = -17;
-                    thigh_weight = .083 * bodyweight;
-                    headweight = .094 * bodyweight;
-                    lowerleg_weight = .055 * bodyweight;
-                    torso_weight = .508 * bodyweight;
-
-                }
-
-                if(Gender = "Female" && 20 <= Age <= 44){
-                    knee_range = 140 * (pi/180);
-                    knee_ext = 2;
-                    knee_flex = 142;
-                    elbow_range = 145 * (pi/180);
-                    elbow_ext = 5;
-                    elbow_flex = 150;
-                    hip_range = 147 * (pi/180);
-                    hip_ext = -18;
-                    hip_flex =134;
-                    ankle_range = 76 * (pi/180);
-                    ankle_ext = 62;
-                    ankle_flex = -14;
-                    thigh_weight = .083 * bodyweight;
-                    headweight = .094 * bodyweight;
-                    lowerleg_weight = .055 * bodyweight;
-                    torso_weight = .508 * bodyweight;
-
-                }
-
-                if (Gender = "Female" && 45 <= Age <= 69){
-                    knee_range = 137 * (pi/180);
-                    knee_ext = 1;
-                    knee_flex = 138;
-                    elbow_range = 145 * (pi/180);
-                    elbow_ext = 4;
-                    elbow_flex = 148;
-                    hip_range = 148 * (pi/180);
-                    hip_ext = -17;
-                    hip_flex =131;
-                    ankle_range = 69 * (pi/180);
-                    ankle_ext = 57;
-                    ankle_flex = -12;
-                    thigh_weight = .083 * bodyweight;
-                    headweight = .094 * bodyweight;
-                    lowerleg_weight = .055 * bodyweight;
-                    torso_weight = .508 * bodyweight;
-
-                }
-            
-            
-
-            
-
-
-                if (exercise = 'Hamstring Curl'){ 
-
-                        hip_work = 0;
-                        thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
-                        ankle_work = 0;
-
-                        thigh_work_leg = 2*(((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
-
-                        totalftlbs = thigh_work_weight + thigh_work_leg;
-                        KJlifted = (1.35582 * totalftlbs) / 1000;
-                        Kcal = KJlifted/4.814;
-
-                        SetCal = Rep*Kcal;
-
-                        document.getElementById("result1").innerHTML = Math.round(totalftlbs);
-                        document.getElementById("result2").innerHTML = Math.round(KJlifted);
-                        document.getElementById("result3").innerHTML = Math.round(Kcal);
-                        document.getElementById("result4").innerHTML = Math.round(SetCal);
-
-                }
-
-                if (exercise = 'Bicep Curl'){
-                        bicep_work_weight = 2* ((((Forearm * weightlifted)/2)*(elbow_range))- .5 * (Math.sin(-(elbow_flex*(pi/180))-Math.sin(elbow_ext*(pi/180)))));
-                        bicep_work_arm = (((Forearm/2) * orearmweight)*(elbow_range))- .5 * (Math.sin(-(elbow_flex*(pi/180))-Math.sin(elbow_ext*(pi/180))));
-
-                        totalftlbs = bicep_work_arm + bicep_work_arm;
-                        KJlifted = (1.35582 * totalftlbs) / 1000;
-                        Kcal = KJlifted/4.814;
-
-                        SetCal = Rep*Kcal;
-
-                        document.getElementById("result1").innerHTML = Math.round(totalftlbs);
-                        document.getElementById("result2").innerHTML = Math.round(KJlifted);
-                        document.getElementById("result3").innerHTML = Math.round(Kcal);
-
-                }    
-                    if  (exercise = 'Single Leg DB Squat'){
-                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
-                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-
-                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
-                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
-
-                          ankle_work = 0;
-
-                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
-
-                          totalftlbs = thigh_work_weight + thigh_work_leg;
-                          KJlifted = (1.35582 * totalftlbs) / 1000;
-                          Kcal = KJlifted/4.814;
-
-                          SetCal = Rep*Kcal;
-                          
-
-                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
-                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
-                          document.getElementById("result3").innerHTML = Math.round(Kcal);
-                }
-
-                if  (exercise = 'Single Leg Leg Press'){
-                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
-                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-
-                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
-                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
-
-                          ankle_work = 0;
-
-                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
-
-                          totalftlbs = thigh_work_weight + thigh_work_leg;
-                          KJlifted = (1.35582 * totalftlbs) / 1000;
-                          Kcal = KJlifted/4.814;
-
-                          SetCal = Rep*Kcal;
-
-                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
-                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
-                          document.getElementById("result3").innerHTML = Math.round(Kcal);
-                }          
-
-                if  (exercise = 'DB Walking Lunges'){
-                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
-                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-
-                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
-                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
-
-                          ankle_work = 0;
-
-                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
-
-                          totalftlbs = thigh_work_weight + thigh_work_leg;
-                          KJlifted = (1.35582 * totalftlbs) / 1000;
-                          Kcal = KJlifted/4.814;
-
-                          SetCal = Rep*Kcal;
-
-                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
-                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
-                          document.getElementById("result3").innerHTML = Math.round(Kcal);
-                }
-                
-                if  (exercise = 'Barbell Squat'){
-                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
-                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-
-                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
-                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
-
-                          ankle_work = 0;
-
-                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
-
-                          totalftlbs = thigh_work_weight + thigh_work_leg;
-                          KJlifted = (1.35582 * totalftlbs) / 1000;
-                          Kcal = KJlifted/4.814;
-
-                          SetCal = Rep*Kcal;
-
-                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
-                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
-                          document.getElementById("result3").innerHTML = Math.round(Kcal);
-                }
-
-                if  (exercise = 'DB Step Up'){
-                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
-                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
-
-                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
-                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
-
-                          ankle_work = 0;
-
-                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
-
-                          totalftlbs = thigh_work_weight + thigh_work_leg;
-                          KJlifted = (1.35582 * totalftlbs) / 1000;
-                          Kcal = KJlifted/4.814;
-
-                          SetCal = Rep*Kcal;
-                          
-
-                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
-                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
-                          document.getElementById("result3").innerHTML = Math.round(Kcal);
-                }
-
-
-                
-
-            
-            return false;
-        }            
-        
-        
-    </script>
-
-
-
- 
-            
-
-
-
-    
     <div class="user_inputs">
         <div class="word"><p2>Age</p2></div>
-        <input type="number" id="n2" name="n2"/><br/><br>
+        <input type="number" id="n2"><br/><br>
         <p1>Select Gender</p1>
         <form action="/action_page.php" name="sex">
             <select name="n3" id="Gender">
@@ -381,37 +23,29 @@
         </form><br/>
 
         <p1>Body Weight (lbs)</p1><br/>
-        <input type="number" id="n9" name="n9"/><br/><br>
+        <input type="number" id="n9"><br/><br>
 
         <p1>Weight Lifted (lbs)</p1><br/>
-        <input type="number" id="n10"/><br/><br>
+        <input type="number" id="n10"><br/><br>
         
-        <div class="dimensions Upper">
+        
          <p1>Shoulder to Elbow Measurement (in)</p1><br/>
-         <input type="number" id="humerus"/><br/><br/>
+         <input type="number" id="humerus"><br/><br/>
 
          <p1>Elbow to Middle Palm Measurement (in)</p1><br/>
-         <input type="number" id="forearm"/><br/><br/>
+         <input type="number" id="forearm"><br/><br/>
         
 
          <p1>Torso Length</p1><br/>
-         <input type="number" id="torso"/><br/><br/>
-       </div>
+         <input type="number" id="torso"><br/><br/>
+       
 
         <div class="dimensions Lower">
          <p1>Thigh (in)</p1><br/>
-         <input type="number" id="femur"/><br/><br/>
+         <input type="number" id="femur"><br/><br/>
 
          <p1>Lower Leg (in)</p1><br/>
-         <input type="number" id="tibia"/><br/><br/>
-        </div>
-        
-        <div class="Repititions">
-            <p1>Number of Reps</p1><br/>
-            <input type="number" id="reps"/><br/><br/>
-
-            <p1>Number of Sets</p1><br/>
-            <input type="number" id="Sets"/><br/><br/>
+         <input type="number" id="tibia"><br/><br/>
         </div>
     </div>
 
@@ -441,21 +75,360 @@
     </div>
 
     <div class="bodymass"> 
-        <p1>Total Torque Exerted by your Joints</p1>      
-        <p id="result1" name="r1">
+        <p1>Torque Exerted by your joints</p1>      
+        <p id="result1">
             <br />
         </p>
 
-        <p1>Total Calories Burned</p1>    
-        <p id="result3" name="r3">
-            <br />
-        </p>
-
-        <p1>Calories Burned Per Set</p1>      
-        <p id="result4" name="r4">
+        <p1>Calories Burned</p1>    
+        <p id="result3">
             <br />
         </p>
     </div>    
+    <script>         
+        function Exercise_Work()     //Calculates the work exerted to perform each exercise
+        {
+           
+            var pi = Math.PI;
+            var bodyweight = parseFloat(document.getElementById('n9').value);  
+            var thigh_measrement = parseFloat(document.getElementById('femur').value);  
+            var lowerleg_measrement = parseFloat(document.getElementById('tibia').value);   
+            var bicep_measrement = parseFloat(document.getElementById('humerus').value);   
+            var Forearm = parseFloat(document.getElementById('forearm').value);   
+            var exercise = parseFloat(document.getElementById('exercises').value);
+            var weightlifted = parseFloat(document.getElementById('n10').value);
+            var forearmweight = .013*bodyweight;
+            var torso_length = parseFloat(document.getElementById('n10').value)
+            var pi = Math.PI;
+            var Age = parseFloat(document.getElementById('n2').value)
+            var knee_range;
+            var knee_ext;
+            var knee_flex;
+            var elbow_range;
+            var elbow_ext;
+            var elbow_flex;
+            var hip_range;
+            var hip_ext;
+            var hip_flex;
+            var ankle_range;
+            var ankle_ext;
+            var ankle_flex;
+            var torso_weight;
+            var thigh_weight;
+            var headweight;
+            var lowerleg_weight;
+
+
+
+
+            
+        
+            
+
+                if(Gender == "Male" && 2 <= Age <= 8){
+
+                    knee_range = 146 * (pi/180);
+                    knee_ext = 2;
+                    knee_flex = 148;
+                    elbow_range = 149 * (pi/180);
+                    elbow_ext = 2;
+                    elbow_flex = 151;
+                    hip_range = 159 * (pi/180);
+                    hip_ext = -28;
+                    hip_flex =131;
+                    ankle_range = 79 * (pi/180);
+                    ankle_ext = 56;
+                    ankle_flex = -23;
+                    torso_weight = .483 * bodyweight;
+                    thigh_weight = .105 * bodyweight;
+                    headweight = .071 * bodyweight;
+                    lowerleg_weight = .045 * bodyweight;
+
+                }else if (Gender == "Male" && 9 <= Age <= 19){
+
+                    knee_range = 144 * (pi/180);
+                    knee_ext = 2;
+                    knee_flex = 142;
+                    elbow_range = 148 * (pi/180);
+                    elbow_ext = 5;
+                    elbow_flex = 151;
+                    hip_range = 153 * (pi/180);
+                    hip_ext = -18;
+                    hip_flex =135;
+                    ankle_range = 68 * (pi/180);
+                    ankle_ext = 53;
+                    ankle_flex = -16;
+                    torso_weight = .483 * bodyweight;
+                    thigh_weight = .105 * bodyweight;
+                    headweight = .071 * bodyweight;
+                    lowerleg_weight = .045 * bodyweight;
+
+                }else if  (Gender == "Male" && 20 <= Age <= 44){
+                    knee_range = 137 * (pi/180);
+                    knee_ext = 1;
+                    knee_flex = 142;
+                    elbow_range = 144 * (pi/180);
+                    elbow_ext = 1;
+                    elbow_flex = 145;
+                    hip_range = 147 * (pi/180);
+                    hip_ext = -17;
+                    hip_flex =130;
+                    ankle_range = 67 * (pi/180);
+                    ankle_ext = 55;
+                    ankle_flex = -13;
+                    torso_weight = .483 * bodyweight;
+                    thigh_weight = .105 * bodyweight;
+                    headweight = .071 * bodyweight;
+                    lowerleg_weight = .045 * bodyweight;
+                }else if(Gender == "Male" && 45 <= Age <= 69){
+                    knee_range = 132 * (pi/180);
+                    knee_ext = 1;
+                    knee_flex = 133;
+                    elbow_range = 143 * (pi/180);
+                    elbow_ext = 1;
+                    elbow_flex = 144;
+                    hip_range = 140 * (pi/180);
+                    hip_ext = -14;
+                    hip_flex =127;
+                    ankle_range = 61 * (pi/180);
+                    ankle_ext = 49;
+                    ankle_flex = -12;
+                    torso_weight = .483 * bodyweight;
+                    thigh_weight = .105 * bodyweight;
+                    headweight = .071 * bodyweight;
+                    lowerleg_weight = .045 * bodyweight;
+
+                }else if (Gender == "Female" && 2 <= Age <= 8){
+                    knee_range = 148 * (pi/180);
+                    knee_ext = 1;
+                    knee_flex = 133;
+                    elbow_range = 146 * (pi/180);
+                    elbow_ext = 1;
+                    elbow_flex = 144;
+                    hip_range = 167 * (pi/180);
+                    hip_ext = -14;
+                    hip_flex =127;
+                    ankle_range = 92 * (pi/180);
+                    ankle_ext = 49;
+                    ankle_flex = -12;
+                    thigh_weight = .083 * bodyweight;
+                    headweight = .094 * bodyweight;
+                    lowerleg_weight = .055 * bodyweight;
+                    torso_weight = .508 * bodyweight;
+
+                }else if (Gender == "Female" && 9 <= Age <= 19){
+                    knee_range = 140 * (pi/180);
+                    knee_ext = 2;
+                    knee_flex = 142;
+                    elbow_range = 144 * (pi/180);
+                    elbow_ext = 6;
+                    elbow_flex = 150;
+                    hip_range = 156 * (pi/180);
+                    hip_ext = -21;
+                    hip_flex =135;
+                    ankle_range = 74 * (pi/180);
+                    ankle_ext = 57;
+                    ankle_flex = -17;
+                    thigh_weight = .083 * bodyweight;
+                    headweight = .094 * bodyweight;
+                    lowerleg_weight = .055 * bodyweight;
+                    torso_weight = .508 * bodyweight;
+
+                }else if(Gender == "Female" && 20 <= Age <= 44){
+                    knee_range = 140 * (pi/180);
+                    knee_ext = 2;
+                    knee_flex = 142;
+                    elbow_range = 145 * (pi/180);
+                    elbow_ext = 5;
+                    elbow_flex = 150;
+                    hip_range = 147 * (pi/180);
+                    hip_ext = -18;
+                    hip_flex =134;
+                    ankle_range = 76 * (pi/180);
+                    ankle_ext = 62;
+                    ankle_flex = -14;
+                    thigh_weight = .083 * bodyweight;
+                    headweight = .094 * bodyweight;
+                    lowerleg_weight = .055 * bodyweight;
+                    torso_weight = .508 * bodyweight;
+
+                }else (Gender == "Female" && 45 <= Age <= 69)
+                    knee_range = 137 * (pi/180);
+                    knee_ext = 1;
+                    knee_flex = 138;
+                    elbow_range = 145 * (pi/180);
+                    elbow_ext = 4;
+                    elbow_flex = 148;
+                    hip_range = 148 * (pi/180);
+                    hip_ext = -17;
+                    hip_flex =131;
+                    ankle_range = 69 * (pi/180);
+                    ankle_ext = 57;
+                    ankle_flex = -12;
+                    thigh_weight = .083 * bodyweight;
+                    headweight = .094 * bodyweight;
+                    lowerleg_weight = .055 * bodyweight;
+                    torso_weight = .508 * bodyweight;
+
+            
+            
+            
+
+            
+
+
+                if (exercise == "Hamstring Curl"){ 
+
+                        hip_work = 0;
+                        thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
+                        ankle_work = 0;
+
+                        thigh_work_leg = 2*(((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
+
+                        totalftlbs = thigh_work_weight + thigh_work_leg;
+                        KJlifted = (1.35582 * totalftlbs) / 1000;
+                        Kcal = KJlifted/4.814
+
+                        document.getElementById("result1").innerHTML = Math.round(totalftlbs);
+                        document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                        document.getElementById("result3").innerHTML = Math.round(Kcal);
+
+                }else if (exercise == "Bicep Curl"){
+                        bicep_work_weight = 2* ((((Forearm * weightlifted)/2)*(elbow_range))- .5 * (Math.sin(-(elbow_flex*(pi/180))-Math.sin(elbow_ext*(pi/180)))));
+                        bicep_work_arm = (((Forearm/2) * orearmweight)*(elbow_range))- .5 * (Math.sin(-(elbow_flex*(pi/180))-Math.sin(elbow_ext*(pi/180))));
+
+                        totalftlbs = bicep_work_arm + bicep_work_arm;
+                        KJlifted = (1.35582 * totalftlbs) / 1000;
+                        Kcal = KJlifted/4.814
+
+                        document.getElementById("result1").innerHTML = Math.round(totalftlbs);
+                        document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                        document.getElementById("result3").innerHTML = Math.round(Kcal);
+                        
+                    
+                }else if  (exercise == "Single Leg DB Squat"){
+                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
+                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+
+                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
+                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
+
+                          ankle_work = 0;
+
+                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
+
+                          totalftlbs = thigh_work_weight + thigh_work_leg;
+                          KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
+                          
+
+                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
+                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
+                        
+                }else if  (exercise == "Single Leg Leg Press"){
+                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
+                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+
+                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
+                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
+
+                          ankle_work = 0;
+
+                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
+
+                          totalftlbs = thigh_work_weight + thigh_work_leg;
+                          KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
+
+                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
+                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
+                        
+
+                }else if  (exercise == "DB Walking Lunges"){
+                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
+                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+
+                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
+                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
+
+                          ankle_work = 0;
+
+                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
+
+                          totalftlbs = thigh_work_weight + thigh_work_leg;
+                          KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
+
+                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
+                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
+                          
+
+                
+                
+                
+                }else if  (exercise == "Barbell Squat"){
+                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
+                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+
+                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
+                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
+
+                          ankle_work = 0;
+
+                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
+
+                          totalftlbs = thigh_work_weight + thigh_work_leg;
+                          KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
+
+                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
+                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
+                          
+                
+
+                }else (exercise == "DB Step Up")
+                          hip_work1 = 2*(((headweight*torso_length)/2)*((hip_range)-.5*(Math.sin(-hip_flex)-Math.sin(hip_ext))));
+                          hip_work2 =  2*(((torso_length/2)*torso_weight)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+                          hip_work3 = 2*(((weightlifted*torso_length)/2)*((hip_range)-.5*Math.sin(-hip_flex)-Math.sin(hip_ext)));
+
+                          thigh_work_weight = 2* ((((lowerleg_measrement * weightlifted)/2)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180)))));  
+                          thigh_work_leg = 2 * weightlifted * Math.sin(-hip_flex*(pi/180))
+
+                          ankle_work = 0;
+
+                          thigh_work_leg = (((lowerleg_measrement/2) * lowerleg_weight)*(knee_range))- .5 * (Math.sin(-(knee_flex*(pi/180))-Math.sin(knee_ext*(pi/180))));
+
+                          totalftlbs = thigh_work_weight + thigh_work_leg;
+                          KJlifted = (1.35582 * totalftlbs) / 1000;
+                          Kcal = KJlifted/4.814
+                          
+
+                          document.getElementById("result1").innerHTML = Math.round(totalftlbs);
+                          document.getElementById("result2").innerHTML = Math.round(KJlifted);
+                          document.getElementById("result3").innerHTML = Math.round(Kcal);
+            }   
+                    
+        
+        
+    </script>
+
+
+
+ 
+            
+
+
+
+    
+    
    
 
 </body>
