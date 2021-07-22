@@ -17,4 +17,73 @@ h1 {
     font-size: medium;
 }
 
+label {
+    padding-left: 2rem;
+}
 
+p1 {
+    padding-left: 2rem;
+}
+
+
+
+.selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+    
+}
+
+
+
+.selection15 input {
+    width: 3rem;
+}
+
+.selection14 input {
+    width: 3rem;
+}
+.selection13 input {
+    width: 3rem;
+}
+.selection12 input {
+    width: 3rem;
+}
+.selection11 input {
+    width: 3rem;
+}.selection10 input {
+    width: 3rem;
+}
+.selection9 input {
+    width: 3rem;
+}
+.selection8 input {
+    width: 3rem;
+}
+.selection7 input {
+    width: 3rem;
+}
+.selection6 input {
+    width: 3rem;
+}
+.selection5 input {
+    width: 3rem;
+}
+.selection4 input {
+    width: 3rem;
+}
+.selection3 input {
+    width: 3rem;
+}
+.selection2 input {
+    width: 3rem;
+}
+.selection1 input {
+    width: 3rem;
+}
+
+.exercise {
+    padding-top: 15rem;
+}
