@@ -30,20 +30,34 @@ p1 {
 .selection {
     
         display: grid;
-        grid-template-columns: 200px 200px 200px 200px 200px;
-        grid-template-rows: 120px 120px 120px 120px;
-        grid-gap: 5rem;
+        grid-template-columns: 200px 200px 200px;  
+        grid-template-rows: 140px 140px 140px 140px;
+        grid-gap: 1rem;
         font-family: 'Lato';
         text-align: center;
-        font-size: 1.4em;
+        font-size: 1em;
         margin: 40px 30px;
+        justify-content: center;
+        
+        
       
     
     
     
 }
 
+.Age_Select  {
+    font-size: 3rem;
+    background-color: red;
+    width: fit-content;
+    border-radius: 2rem;
+    height: 5rem;
+    font: bold;
+}
 
+.Age_Select select {
+    font-size: x-large;
+}
 
 .selection15 input {
     width: 33%;
@@ -94,3 +108,5 @@ p1 {
 .exercise {
     padding-top: 15rem;
 }
+
+

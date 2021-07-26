@@ -17,13 +17,16 @@
             document.getElementById('option1').innerHTML=(sex.genderselect[sex.genderselect.selectedIndex].text)
             selectedgender = document.getElementById('option1').innerHTML=(sex.genderselect[sex.genderselect.selectedIndex].text)
 
-            if (selectedgender == "Male" ) {
+            if (selectedgender == "Male" ) { 
                 
-                testif = 2;
-            }else
+              testif = 2;
+            }else if (selectedgender == 'Female'){
 
              testif = 0;
         
+
+             
+            }
 
             document.getElementById("result").innerHTML = testif;
 
@@ -34,14 +37,20 @@
             var selectedage;
             var knee_range;
             var selectedgender;
+            var bodyweight = parseFloat(document.getElementById('n9').value);    //Body Weight
+            var thigh_measrement = parseFloat(document.getElementById('femur').value);  //Upper Leg
+            var lowerleg_measrement = parseFloat(document.getElementById('tibia').value);   //Lower Leg
+            var bicep_measrement = parseFloat(document.getElementById('humerus').value);   //Upper Arm/Bicep Bone
+            var Forearm = parseFloat(document.getElementById('forearm').value);   //Forearm measurement
+
 
             document.getElementById('option2').innerHTML=(Age.ageselect[Age.ageselect.selectedIndex].text)
             selectedage = document.getElementById('option2').innerHTML=(Age.ageselect[Age.ageselect.selectedIndex].text)
             selectedgender = document.getElementById('option1').innerHTML=(sex.genderselect[sex.genderselect.selectedIndex].text)
             
-            if (selectedgender == "Male"){
+            if (selectedgender == "Male"){ 
 
-                if (selectedage == "2-8"){
+                if (selectedage == "2-8"){  //Age Group 1
                   knee_range = 146;
                   knee_ext = 2;
                   knee_flex = 148;
@@ -54,8 +63,13 @@
                   ankle_range = 79;
                   ankle_ext = 56;
                   ankle_flex = -23;
+                  torso_weight = .483 * bodyweight;
+                  thigh_weight = .105 * bodyweight;
+                  headweight = .071 * bodyweight;
+                  lowerleg_weight = .0450 * bodyweight;
+                  forearmweight = .013 * bodyweight;
                   
-                }else if (selectedage == "9-19"){
+                }else if (selectedage == "9-19"){  //Age Group 2
 
                     knee_range = 144;
                     knee_ext = 2;
@@ -69,7 +83,13 @@
                     ankle_range = 68;
                     ankle_ext = 53;
                     ankle_flex = -16;
-                }else if (selectedage == "20-44"){
+                    torso_weight = .483 * bodyweight;
+                    thigh_weight = .105 * bodyweight;
+                    headweight = .071 * bodyweight;
+                    lowerleg_weight = .045 * bodyweight;
+                    forearmweight = .013 * bodyweight;
+
+                }else if (selectedage == "20-44"){  //Age Group 3
                     knee_range = 137;
                     knee_ext = 1;
                     knee_flex = 142;
@@ -82,7 +102,12 @@
                     ankle_range = 67;
                     ankle_ext = 55;
                     ankle_flex = -13;
-                }else{
+                    torso_weight = .483 * bodyweight;
+                    thigh_weight = .105 * bodyweight;
+                    headweight = .071 * bodyweight;
+                    lowerleg_weight = .045 * bodyweight;
+                    forearmweight = .013 * bodyweight;
+                }else{                         //Age Group 4
                     knee_range = 132;
                     knee_ext = 1;
                     knee_flex = 133;
@@ -95,27 +120,18 @@
                     ankle_range = 61;
                     ankle_ext = 49;
                     ankle_flex = -12;
+                    torso_weight = .483 * bodyweight;
+                    thigh_weight = .105 * bodyweight;
+                    headweight = .071 * bodyweight;
+                    lowerleg_weight = .045 * bodyweight;
+                    forearmweight = .013 * bodyweight;
                 }
-
-                document.getElementById("result2").innerHTML = knee_range;
-                document.getElementById("result3").innerHTML = knee_ext;
-                document.getElementById("result4").innerHTML = knee_flex;
-                document.getElementById("result5").innerHTML = elbow_range;
-                document.getElementById("result6").innerHTML = elbow_ext;
-                document.getElementById("result7").innerHTML = elbow_flex;
-                document.getElementById("result8").innerHTML = hip_range;
-                document.getElementById("result9").innerHTML = hip_ext;
-                document.getElementById("result10").innerHTML = hip_flex;
-                document.getElementById("result11").innerHTML = ankle_range;
-                document.getElementById("result12").innerHTML = ankle_ext;
-                document.getElementById("result13").innerHTML = ankle_flex;
-            
                 
              
 
             }else if (selectedgender == "Female"){
                 
-                if (selectedage == "2-8"){
+                if (selectedage == "2-8"){         //Age Group 1
                     knee_range = 148;
                     knee_ext = 1;
                     knee_flex = 133;
@@ -128,8 +144,14 @@
                     ankle_range = 92;
                     ankle_ext = 49;
                     ankle_flex = -12;
+                    thigh_weight = .083 * bodyweight;
+                    headweight = .094 * bodyweight;
+                    lowerleg_weight = .055 * bodyweight;
+                    torso_weight = .508 * bodyweight;
+                    forearmweight = .013 * bodyweight;
+
                   
-                }else if (selectedage == "9-19"){
+                }else if (selectedage == "9-19"){    //Age Group 2
 
                     knee_range = 140;
                     knee_ext = 2;
@@ -143,7 +165,12 @@
                     ankle_range = 74;
                     ankle_ext = 57;
                     ankle_flex = -17;
-                }else if (selectedage == "20-44"){
+                    thigh_weight = .083 * bodyweight;
+                    headweight = .094 * bodyweight;
+                    lowerleg_weight = .055 * bodyweight;
+                    torso_weight = .508 * bodyweight;
+                    forearmweight = .013 * bodyweight;
+                }else if (selectedage == "20-44"){       //Age Group 3
                     knee_range = 140;
                     knee_ext = 2;
                     knee_flex = 142;
@@ -156,7 +183,12 @@
                     ankle_range = 76;
                     ankle_ext = 62;
                     ankle_flex = -14;
-                }else{
+                    thigh_weight = .083 * bodyweight;
+                    headweight = .094 * bodyweight;
+                    lowerleg_weight = .055 * bodyweight;
+                    torso_weight = .508 * bodyweight;
+                    forearmweight = .013 * bodyweight;
+                }else if (selectedage == "45-69"){                                //Age Group 4
                     knee_range = 137;
                     knee_ext = 1;
                     knee_flex = 138;
@@ -169,31 +201,423 @@
                     ankle_range = 69;
                     ankle_ext = 57;
                     ankle_flex = -12;
+                    thigh_weight = .083 * bodyweight;
+                    headweight = .094 * bodyweight;
+                    lowerleg_weight = .055 * bodyweight;
+                    torso_weight = .508 * bodyweight;
+                    forearmweight = .013 * bodyweight;
                 }
 
-                document.getElementById("result2").innerHTML = knee_range;
-                document.getElementById("result3").innerHTML = knee_ext;
-                document.getElementById("result4").innerHTML = knee_flex;
-                document.getElementById("result5").innerHTML = elbow_range;
-                document.getElementById("result6").innerHTML = elbow_ext;
-                document.getElementById("result7").innerHTML = elbow_flex;
-                document.getElementById("result8").innerHTML = hip_range;
-                document.getElementById("result9").innerHTML = hip_ext;
-                document.getElementById("result10").innerHTML = hip_flex;
-                document.getElementById("result11").innerHTML = ankle_range;
-                document.getElementById("result12").innerHTML = ankle_ext;
-                document.getElementById("result13").innerHTML = ankle_flex;
+                
 
                 
 
             }else{
                 knee_range = 0;
             }
+        
+
+                
+        
+            //Limbs Weight
+         var lowerleg_weight1 = lowerleg_weight
+         var headweight1 = headweight
+         var thigh_weight1 = thigh_weight
+         var torso_weight1 = torso_weight
+         var forearmweight1 = forearmweight
+         var knee_range1 = knee_range
+         var knee_ext1 = knee_ext
+         var elbow_range1 = elbow_range
+         var elbow_ext1 = elbow_ext
+         var elbow_flex1 = elbow_flex
+         var hip_range1 = hip_range
+         var hip_ext1 = hip_ext
+         var ankle_range1 = ankle_range
+         var ankle_ext1 = ankle_ext
+         var ankle_flex1 = ankle_flex
+         var knee_flex1 = knee_flex
+         var hip_flex1 = hip_flex
+
+
+         //Limb Meassurements
+         var thigh_measrement1 = thigh_measrement
+         var lowerleg_measrement1 = lowerleg_measrement
+         var bicep_measrement1 = bicep_measrement
+         var Forearm1 = Forearm
+                
+
+        
+            //Exercise Options
+         var arrray2 = []  //Workout Type
+         var array3 = []  //Total Reps
+         var array4 = []  //Workcalc
+         var array5 = []  //user measurements
+         var array6 = [] //Joint Ranges
+         var array7 = [] //work weight ft-lbs
+         var ex1 = document.getElementById("exercise1")
+         var ex2 = document.getElementById("exercise2")
+         var ex3 = document.getElementById("exercise3")
+         var ex4 = document.getElementById("exercise4")
+         var ex5 = document.getElementById("exercise5")
+         var ex6 = document.getElementById("exercise6")
+         var ex7 = document.getElementById("exercise7")
+         var ex8 = document.getElementById("exercise8")
+         var ex9 = document.getElementById("exercise9")
+         var ex10 = document.getElementById("exercise10")
+         var ex11 = document.getElementById("exercise11")
+         var ex12 = document.getElementById("exercise12")
+         var ex13 = document.getElementById("exercise13")
+         var ex14 = document.getElementById("exercise14")
+         var ex15 = document.getElementById("exercise15")
+
+         //Exercise sets, reps, and weight 
+         var rep1 = document.getElementById('rep1').value
+         var set1 = document.getElementById('set1').value
+         var weight1 = document.getElementById("weight1").value
+         var rep2 = document.getElementById("rep2").value
+         var set2 = document.getElementById("set2").value
+         var weight2 = document.getElementById("weight2").value
+         var rep3 = document.getElementById("rep3").value
+         var set3 = document.getElementById("set3").value
+         var weight3 = document.getElementById("weight3").value
+         var rep4 = document.getElementById("rep4").value
+         var set4 = document.getElementById("set4").value
+         var weight4 = document.getElementById("weight4").value
+         var rep5 = document.getElementById("rep5").value
+         var set5 = document.getElementById("set5").value
+         var weight5 = document.getElementById("weight5").value
+         var rep6 = document.getElementById("rep6").value
+         var set6 = document.getElementById("set6").value
+         var weight6 = document.getElementById("weight6").value
+         var rep7 = document.getElementById("rep7").value
+         var set7 = document.getElementById("set7").value
+         var weight7 = document.getElementById("weight7").value
+         var rep8 = document.getElementById("rep8").value
+         var set8 = document.getElementById("set8").value
+         var weight8 = document.getElementById("weight8").value
+         var rep9 = document.getElementById("rep9").value
+         var set9 = document.getElementById("set9").value
+         var weight9 = document.getElementById("weight9").value
+         var rep10 = document.getElementById("rep10").value
+         var set10 = document.getElementById("set10").value
+         var weight10 = document.getElementById("weight10").value
+         var rep11 = document.getElementById("rep11").value
+         var set11 = document.getElementById("set11").value
+         var weight11 = document.getElementById("weight11").value
+         var rep12 = document.getElementById("rep12").value
+         var set12 = document.getElementById("set12").value
+         var weight12 = document.getElementById("weight12").value
+         var rep13 = document.getElementById("rep13").value
+         var set13 = document.getElementById("set13").value
+         var weight13 = document.getElementById("weight13").value
+         var rep14 = document.getElementById("rep14").value
+         var set14 = document.getElementById("set14").value
+         var weight14 = document.getElementById("weight14").value
+         var rep15 = document.getElementById("rep15").value
+         var set15 = document.getElementById("set15").value
+         var weight15 = document.getElementById("weight15").value
+
+         
+
+
+
+
+         //Total Reps Performed 
+         var trep1 = rep1 * set1
+         var trep2 = rep2 * set2
+         var trep3 = rep3 * set3
+         var trep4 = rep4 * set4
+         var trep5 = rep5 * set5
+         var trep6 = rep6 * set6
+         var trep7 = rep7 * set7
+         var trep8 = rep8 * set8
+         var trep9 = rep9 * set9
+         var trep10 = rep10 * set10
+         var trep11 = rep11 * set11
+         var trep12 = rep12 * set12
+         var trep13 = rep13 * set13
+         var trep14 = rep14 * set14
+         var trep15 = rep15 * set15
+         
+         var hip_work1;
+         var hip_work2;
+         var thigh_work_weight;
+         var ankle_work1;
+         var thigh_work_leg;
+         
+         var bicep_work_weight;
+         var bicep_work_arm;
+         var tricep_work1;
+
+         
+         
+         
+         
+         var work_ft_lbs1;
+         var work_ft_lbs2;
+         var work_ft_lbs3;
+         var work_ft_lbs4;
+         var work_ft_lbs15;
+         var KJlifted;
+         var KJlifted2;
+         var KJlifted3;
+         var Kcal1;
+         var Kcal2;
+         var Kcal3;
+         var Kcal4;
+         var Kcal5;
+         var Kcal6;
+         var Kcal7;
+         var Kcal8;
+         var Kcal9;
+         var Kcal10;
+         var Kcal11;
+         var Kcal12;
+         var Kcal13;
+         var Kcal14;
+         var Kcal15;
+
+
+
+
+
+
+         
+
+
+
+
+
+          //Exercise Work Total
+          
+          if(ex1.checked){      //Hamstring Curl Selection
+             arrray2.push(ex1.value);
+             array3.push(trep1,weight1);
+             array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,hip_work1);
+             array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+             array6.push(knee_range,knee_ext,knee_flex);
+
+             thigh_work_weight = 2 * (((array5[1]*(array3[1]))/2)*(array6[1]*(3.14/180)))- .5 * (Math.sin((array6[2]*(3.14/180)))-Math.sin((array6[1]*(3.14/180))));
+             hip_work1 = 0;
+             ankle_work1 = 0;
+             thigh_work_leg = 2 * ((array5[1]/2)*array4[0]*array6[0]*(3.14/180)) - .5 * (Math.sin((array6[2]*(3.14/180)))-Math.sin((array6[1]*(3.14/180))));
+
+             work_ft_lbs1 =  (thigh_weight + hip_work1 + ankle_work1 + thigh_work_leg);
+             KJlifted = (0.0014 * work_ft_lbs1);
+             Kcal1 = array3[1] * (KJlifted * 0.239);
+            }else{
+                 Kcal1 = 0;
+            
+
+             array7.push(Math.round(Kcal1));
+             
+
+            }
+          if(ex2.checked){    //Abdominal Lying Leg Raise
+            arrray2.push(ex2.value);
+            
+            hip_work2 = ((.5 *thigh_measrement1*thigh_weight1)+((thigh_measrement1+(.5*lowerleg_measrement1))*lowerleg_weight1))*(-Math.cos((hip_flex1*(3.14/180)))+(Math.cos((hip_ext1*(3.14/180)))));
+
 
             
+            work_ft_lbs3 = hip_work2;
+            KJlifted2 = (0.0014 * work_ft_lbs3);
+            Kcal2 = trep2 * (KJlifted2 * 0.239);
+
+            }else{
+                 Kcal2 = 0;
+            }
+             
+            if(ex3.checked){
+            arrray2.push(ex3.value);
+
+            tricep_work1 = (((.5 *Forearm1)*forearmweight1)+(Forearm1*weight3))*(-Math.cos((elbow_flex1*(3.14/180)))+(Math.cos((elbow_ext1*(3.14/180)))));
+
+
             
+            work_ft_lbs4 = tricep_work1;
+            KJlifted3 = (0.0014 * work_ft_lbs4);
+            Kcal4 = trep3 * (KJlifted3 * 0.239);
+
+            }else{
+                 Kcal4 = 0;
+            }
+
+
+            
+            if(ex4.checked){
+                arrray2.push(ex4.value);
+            }
+            if(ex5.checked){
+                arrray2.push(ex5.value);
+            }
+            if(ex6.checked){
+                arrray2.push(ex6.value);
+
+                bicep_work_weight = 2 * (((Forearm1*(weight6))/2)*(elbow_range1*(3.14/180)))- .5 * (Math.sin((elbow_flex1*(3.14/180)))-Math.sin((elbow_ext1*(3.14/180))));
+
+                bicep_work_arm = 2 * ((Forearm1/2)*forearmweight1*elbow_range1*(3.14/180)) - .5 * (Math.sin((elbow_flex1*(3.14/180)))-Math.sin((elbow_ext1*(3.14/180))));
+
+             work_ft_lbs2 =  (bicep_work_weight + bicep_work_arm);
+             KJlifted = (0.0014 * work_ft_lbs2);
+             Kcal3 = trep6 * (KJlifted * 0.239);
+            }else{
+                 Kcal3 = 0;
+
+
+
+
+            }
+            if(ex7.checked){
+                arrray2.push(ex7.value);
+
+
+            }
+            if(ex8.checked){
+                arrray2.push(ex8.value);
+            }
+            if(ex9.checked){
+                arrray2.push(ex9.value);
+
+                
+
+
+
+
+            }
+            if(ex10.checked){
+                arrray2.push(ex10.value);
+            }
+            if(ex11.checked){
+                arrray2.push(ex11.value);
+            }
+            if(ex12.checked){
+                arrray2.push(ex12.value);
+            }
+            if(ex13.checked){
+                arrray2.push(ex13.value);
+            }
+            if(ex14.checked){
+                arrray2.push(ex14.value);
+            }
+            if(ex15.checked){
+                arrray2.push(ex15.value);
+
+             thigh_work_weight = 2 * (((lowerleg_measrement1*(weight15))/2)*(knee_range1*(3.14/180)))- .5 * (Math.sin((knee_flex*(3.14/180)))-Math.sin((knee_ext*(3.14/180))));
+             hip_work1 = 0;
+             ankle_work1 = 0;
+             thigh_work_leg = 2 * ((lowerleg_measrement1/2)*lowerleg_weight1*(knee_range1*(3.14/180))) - .5 * (Math.sin((knee_flex*(3.14/180)))-Math.sin((knee_ext*(3.14/180))));
+
+             work_ft_lbs15 =  (thigh_weight + hip_work1 + ankle_work1 + thigh_work_leg);
+             KJlifted = (0.0014 * work_ft_lbs15);
+             Kcal15 = trep15 * (KJlifted * 0.239);
+            }else{
+                 Kcal15 = 0;
+            }
+           if(arrray2.length>0){
+            document.getElementById("p7").innerHTML = Math.round(Kcal1 + Kcal3 + Kcal15 + Kcal2 + Kcal4 );
+            
+            
+
+           }
+           else{
+           document.getElementById("p3").innerHTML = "You Dont have any thing";
+           }
+
+            
+
+             
+
+             
+             
+         
+
+         
 
         }
+
+        
+            
+            
+
+        
+
+        function getValue() {
+         var ele=[]
+         var ex1 = document.getElementById("exercise1")
+         var ex2 = document.getElementById("exercise2")
+         var ex3 = document.getElementById("exercise3")
+         var ex4 = document.getElementById("exercise4")
+         var ex5 = document.getElementById("exercise5")
+         var ex6 = document.getElementById("exercise6")
+         var ex7 = document.getElementById("exercise7")
+         var ex8 = document.getElementById("exercise8")
+         var ex9 = document.getElementById("exercise9")
+         var ex10 = document.getElementById("exercise10")
+         var ex11 = document.getElementById("exercise11")
+         var ex12 = document.getElementById("exercise12")
+         var ex13 = document.getElementById("exercise13")
+         var ex14 = document.getElementById("exercise14")
+         var ex15 = document.getElementById("exercise15")
+          
+         if(ex1.checked){
+                ele.push(ex1.value);
+            }
+          if(ex2.checked){
+                ele.push(ex2.value);
+            }
+          if(ex3.checked){
+                ele.push(ex3.value);
+            }
+            if(ex4.checked){
+                ele.push(ex4.value);
+            }
+            if(ex5.checked){
+                ele.push(ex5.value);
+            }
+            if(ex6.checked){
+                ele.push(ex6.value);
+            }
+            if(ex7.checked){
+                ele.push(ex7.value);
+            }
+            if(ex8.checked){
+                ele.push(ex8.value);
+            }
+            if(ex9.checked){
+                ele.push(ex9.value);
+            }
+            if(ex10.checked){
+                ele.push(ex10.value);
+            }
+            if(ex11.checked){
+                ele.push(ex11.value);
+            }
+            if(ex12.checked){
+                ele.push(ex12.value);
+            }
+            if(ex13.checked){
+                ele.push(ex13.value);
+            }
+            if(ex14.checked){
+                ele.push(ex14.value);
+            }
+            if(ex15.checked){
+                ele.push(ex15.value);
+            }
+           if(ele.length>0){
+            document.getElementById("p2").innerHTML = ele;
+           }
+           else{
+           document.getElementById("p2").innerHTML = "You Dont have any thing";
+           }
+        }
+
+
+
+        
+        
+
     </script>
 </head>
 
@@ -202,48 +626,30 @@
 
     <center>
 
-       <form name="sex">
-           <select name="genderselect" onchange="getgender()">
-               <option>Select Gender</option>
-               <option value="Male">Male</option>
-               <option value="Female">Female</option>
-           </select>
-       </form>
-       <label id="option1"></label><br><br/>
-       <label id="result"></label><br><br/>
 
+
+         
+
+
+    <div class="Age_Select">
      <form name="Age">
-            <select name="ageselect" onchange="getage()">
+            <select name="ageselect" >
                 <option>Select Age</option>
-                <option value="1">2-8</option>
-                <option value="2">9-19</option>
-                <option value="3">20-44</option>
-                <option value="4">45-69</option>
-                <option value="4">69+</option>
+                <option value="1">2-8</option>  <!--Age Range 1-->
+                <option value="2">9-19</option>  <!--Age Range 2-->
+                <option value="3">20-44</option>  <!--Age Range 3-->
+                <option value="4">45-69</option>   <!--Age Range 4-->
+                <option value="4">69+</option>      <!--Age Range 4-->
             </select>
       </form>
         <label id="option2"></label><br><br/>
-        <label id="result3"></label><br>
-        <label id="result2"></label><br>
-        <label id="result4"></label><br>
-        <label id="result5"></label><br>
-        <label id="result6"></label><br>
-        <label id="result7"></label><br>
-        <label id="result8"></label><br>
-        <label id="result9"></label><br>
-        <label id="result10"></label><br>
-        <label id="result11"></label><br>
-        <label id="result12"></label><br>
-        <label id="result13"></label><br>
+    </div>
+        
         
     
       
         <p1>Body Weight (lbs)</p1><br/>
         <input type="number" id="n9"><br/><br>
-
-        <p1>Weight Lifted (lbs)</p1><br/>
-        <input type="number" id="n10"><br/><br>
-        
         
          <p1>Shoulder to Elbow Measurement (in)</p1><br/>
          <input type="number" id="humerus"><br/><br/>
@@ -253,39 +659,45 @@
         
 
          <p1>Torso Length</p1><br/>
-         <input type="number" id="torso"><br/><br/>
+         <input type="number" id="torso"><br/><br/>  <!--Mid Section (Waist to Neck)-->
        
 
         <div class="dimensions Lower">
          <p1>Thigh (in)</p1><br/>
-         <input type="number" id="femur"><br/><br/>
+         <input type="number" id="femur"><br/><br/>   <!--Upper Leg-->
 
          <p1>Lower Leg (in)</p1><br/>
-         <input type="number" id="tibia"><br/><br/>
+         <input type="number" id="tibia"><br/><br/>   <!--Lower Leg-->
+        </div>
         <!--Save this user date to local/global storage-->
-      </center>
 
-    <h1>Create Your Workout</h1>
+        <label id="result14"></label><br>
+        <label id="result15"></label><br>
+        <label id="result16"></label><br>
+        <label id="result17"></label><br>
+      
 
-    <p1>Select Workout</p1><br/>
+     <h1>Create Your Workout</h1>
 
-    <div class="selection">
+     <p1>Select Workout</p1><br/>
 
-        
+     <div class="selection">
 
+            
 
-        <div class="selection1">
-         <label for="exercise1"><input type="checkbox" name="exercise" value="Hamstring Curl" id="exercise1">Hamstring Curl</label><br/>
+    
+    <div class="selection1">
+         <input type="checkbox" id="exercise1" name="ex1" value="Hamstring Curl">Hamstring Curl<br/>  
          <p1>Sets</p1>
          <input type="number" id="set1"><br/>
          <p1>Reps</p1>
          <input type="number" id="rep1"><br/><br/>
          <p1>Weight</p1>
          <input type="number" id="weight1"><br/><br/>
-        </div>
+    </div>
         
         <div class="selection2">
-         <label for="exercise2"><input type="checkbox" name="exercise" value="Abdominal Lying Leg Raise" id="exercise2"> Abdominal Lying Leg Raise</label><br/>
+         <input type="checkbox" id="exercise2" name="ex2" value="Abdominal Lying Leg Raise" > Abdominal Lying Leg Raise<br/>
          <p1>Sets</p1>
          <input type="number" id="set2"><br/>
          <p1>Reps</p1>
@@ -295,7 +707,7 @@
         </div>
         
         <div class="selection3">
-            <label for="exercise3"><input type="checkbox" name="exercise" value="Cable Tricep Push Down" id="exercise3">  Cable Tricep Push Down</label><br/>
+            <input type="checkbox" id="exercise3" name="ex3" value="Cable Tricep Push Down" >  Cable Tricep Push Down<br/>
             <p1>Sets</p1>
             <input type="number" id="set3"><br/>
             <p1>Reps</p1>
@@ -305,7 +717,7 @@
         </div>
         
         <div class="selection4">
-            <label for="exercise4"><input type="checkbox" name="exercise" value="Bodyweight Tricep Dips" id="exercise4">  Bodyweight Tricep Dips</label><br/>
+            <input type="checkbox" id="exercise4" name="ex4" value="Bodyweight Tricep Dips" >  Bodyweight Tricep Dips<br/>
             <p1>Sets</p1>
             <input type="number" id="set4"><br/>
             <p1>Reps</p1>
@@ -315,7 +727,7 @@
         </div>
         
         <div class="selection5">
-            <label for="exercise5"><input type="checkbox" name="exercise" value="Trap Bar Deadlift" id="exercise5"> Trap Bar Deadlift</label><br/>
+            <input type="checkbox" id="exercise5" name="ex5" value="Trap Bar Deadlift" > Trap Bar Deadlift<br/>
             <p1>Sets</p1>
             <input type="number" id="set5"><br/>
             <p1>Reps</p1>
@@ -325,7 +737,7 @@
         </div>
         
         <div class="selection6">
-            <label for="exercise6"><input type="checkbox" name="exercise" value="Bicep Curls" id="exercise6">  Bicep Curls</label><br/>
+            <input type="checkbox" id="exercise6" name="ex6" value="Bicep Curls" >  Bicep Curls<br/>
             <p1>Sets</p1>
             <input type="number" id="set6"><br/>
             <p1>Reps</p1>
@@ -336,7 +748,7 @@
         </div>
         
         <div class="selection7">
-            <label for="exercise7"><input type="checkbox" name="exercise" value="Single Leg DB Squat" id="exercise7">  Single Leg DB Squat</label><br/>
+            <input type="checkbox" id="exercise7" name="ex7" value="Single Leg DB Squat" >  Single Leg DB Squat<br/>
             <p1>Sets</p1>
             <input type="number" id="set7"><br/>
             <p1>Reps</p1>
@@ -346,7 +758,7 @@
         </div>
 
         <div class="selection8">
-            <label for="exercise8"><input type="checkbox" name="exercise" value="Single Leg Leg Press" id="exercise8"> Single Leg Leg Press</label><br/>
+            <input type="checkbox" id="exercise8" name="ex8" value="Single Leg Leg Press" > Single Leg Leg Press<br/>
             <p1>Sets</p1>
             <input type="number" id="set8"><br/>
             <p1>Reps</p1>
@@ -356,7 +768,7 @@
         </div>
         
         <div class="selection9">
-            <label for="exercise9"><input type="checkbox" name="exercise" value="DB Walking Lunges" id="exercise9"> DB Walking Lunges</label><br/>
+            <input type="checkbox" id="exercise9" name="ex9" value="DB Walking Lunges" > DB Walking Lunges<br/>
             <p1>Sets</p1>
             <input type="number" id="set9"><br/>
             <p1>Reps</p1>
@@ -366,7 +778,7 @@
         </div>
         
         <div class="selection10">
-            <label for="exercise10"><input type="checkbox" name="exercise" value="Leg Extensions" id="exercise10"> Leg Extensions</label><br/>
+            <input type="checkbox" id="exercise10" name="ex10" value="Leg Extensions" > Leg Extensions<br/>
             <p1>Sets</p1>
             <input type="number" id="set10"><br/>
             <p1>Reps</p1>
@@ -376,7 +788,7 @@
         </div>
         
         <div class="selection11">
-            <label for="exercise11"><input type="checkbox" name="exercise" value="Hanging Leg Raises" id="exercise11"> Hanging Leg Raises</label><br/>
+            <input type="checkbox" id="exercise11" name="ex11" value="Hanging Leg Raises" > Hanging Leg Raises<br/>
             <p1>Sets</p1>
             <input type="number" id="set11"><br/>
             <p1>Reps</p1>
@@ -386,7 +798,7 @@
         </div>
         
         <div class="selection12">
-            <label for="exercise12"><input type="checkbox" name="exercise" value="Overhead Tricep Extension" id="exercise12"> Overhead Tricep Extension</label><br/>
+            <input type="checkbox" id="exercise12" name="ex12" value="Overhead Tricep Extension" > Overhead Tricep Extension<br/>
             <p1>Sets</p1>
             <input type="number" id="set12"><br/>
             <p1>Reps</p1>
@@ -396,7 +808,7 @@
         </div>
         
         <div class="selection13">
-            <label for="exercise13"><input type="checkbox" name="exercise" value="Barbell Squat" id="exercise13"> Barbell Squat</label><br/>
+            <input type="checkbox" id="exercise13" name="ex13" value="Barbell Squat" > Barbell Squat<br/>
             <p1>Sets</p1>
             <input type="number" id="set13"><br/>
             <p1>Reps</p1>
@@ -407,7 +819,7 @@
         </div>
         
         <div class="selection14">
-            <label for="exercise14"><input type="checkbox" name="exercise" value="DB Step Ups" id="exercise14"> DB Step Ups</label><br/>
+            <input type="checkbox" id="exercise14" name="ex14" value="DB Step Ups" > DB Step Ups<br/>
             <p1>Sets</p1>   
             <input type="number" id="set14"><br/>
             <p1>Reps</p1>
@@ -417,7 +829,7 @@
         </div>
         
         <div class="selection15">
-            <label for="exercise15"><input type="checkbox" name="exercise" value="Seated Leg Curl" id="exercise15"> Seated Leg Curl</label><br/>
+            <input type="checkbox" id="exercise15" name="ex15" value="Seated Leg Curl" > Seated Leg Curl<br/>
             <p1>Sets</p1>
             <input type="number" id="set15"><br/>
             <p1>Reps</p1>
@@ -426,10 +838,32 @@
             <input type="number" id="weight15"><br/><br/>
         </div>
 
+        <form name="sex">
+            <select name="genderselect">
+                <option>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </form>
+        <button onclick="getgender()">Submit</button>
+
+        <label id="option1"></label><br><br/>  <!--Gender selection id-->
+        <label id="result"></label><br><br/>
+
         
 
-    </div>
+        
 
+     
+     <button  onclick="getage()">Joint Work</button>
+
+     <p>Expected Calories Burned From Workout</p>
+     <p2 id="p7"></p2><br>
+     <!--<button onclick="getValue()">Get Value</button>
+     <p id="p2"></p>-->
+    </center>
+
+   
 
     
     
@@ -446,3 +880,117 @@
    
 
 </body>
+
+<style>
+* {
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.p {
+    font-weight: 200;
+    font-style: oblique;
+    font-size: large;
+}
+
+h1 {
+    font-size: medium;
+}
+
+label {
+    padding-left: 2rem;
+}
+
+p1 {
+    padding-left: 2rem;
+}
+
+
+
+.selection {
+    
+        display: grid;
+        grid-template-columns: 200px 200px 200px;  
+        grid-template-rows: 140px 140px 140px 140px;
+        grid-gap: 1rem;
+        font-family: 'Lato';
+        text-align: center;
+        font-size: 1em;
+        margin: 40px 30px;
+        justify-content: center;
+        
+        
+      
+    
+    
+    
+}
+
+.Age_Select  {
+    font-size: 3rem;
+    background-color: red;
+    width: fit-content;
+    border-radius: 2rem;
+    height: 5rem;
+    font: bold;
+}
+
+.Age_Select select {
+    font-size: x-large;
+}
+
+.selection15 input {
+    width: 33%;
+}
+
+.selection14 input {
+    width: 33%;
+}
+.selection13 input {
+    width: 33%;
+}
+.selection12 input {
+    width: 33%;
+}
+.selection11 input {
+    width: 33%;
+}.selection10 input {
+    width: 33%;
+}
+.selection9 input {
+    width: 33%;
+}
+.selection8 input {
+    width: 33%;
+}
+.selection7 input {
+    width: 33%;
+}
+.selection6 input {
+    width: 33%;
+}
+.selection5 input {
+    width: 33%;
+}
+.selection4 input {
+    width: 33%;
+}
+.selection3 input {
+    width: 33%;
+}
+.selection2 input {
+    width: 33%;
+}
+.selection1 input {
+    width: 33%;
+}
+
+.exercise {
+    padding-top: 15rem;
+}
+
+</style>
