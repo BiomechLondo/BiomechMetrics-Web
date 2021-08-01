@@ -12,17 +12,17 @@
         function getgender()
         {
             var selectedgender;
-            var testif;
+            //var testif;
 
             document.getElementById('option1').innerHTML=(sex.genderselect[sex.genderselect.selectedIndex].text)
             selectedgender = document.getElementById('option1').innerHTML=(sex.genderselect[sex.genderselect.selectedIndex].text)
 
             if (selectedgender == "Male" ) { 
                 
-              testif = 2;
+              //testif = 2;
             }else if (selectedgender == 'Female'){
 
-             testif = 0;
+             //testif = 0;
         
 
              
@@ -42,6 +42,7 @@
             var lowerleg_measrement = parseFloat(document.getElementById('tibia').value);   //Lower Leg
             var bicep_measrement = parseFloat(document.getElementById('humerus').value);   //Upper Arm/Bicep Bone
             var Forearm = parseFloat(document.getElementById('forearm').value);   //Forearm measurement
+            var Torso = parseFloat(document.getElementById('torso').value);   //Forearm measurement
 
 
             document.getElementById('option2').innerHTML=(Age.ageselect[Age.ageselect.selectedIndex].text)
@@ -225,25 +226,41 @@
          var thigh_weight1 = thigh_weight
          var torso_weight1 = torso_weight
          var forearmweight1 = forearmweight
+         var bicep_weight1 = bodyweight - (lowerleg_weight1+headweight1+thigh_weight1+torso_weight1+forearmweight1)
+
+               
          var knee_range1 = knee_range
          var knee_ext1 = knee_ext
+         var knee_flex1 = knee_flex
+         var DOF_Knee = [knee_range1,knee_ext1,knee_flex1]
+
+         
          var elbow_range1 = elbow_range
          var elbow_ext1 = elbow_ext
          var elbow_flex1 = elbow_flex
+         var DOF_Elbow = [elbow_range1,elbow_ext1,elbow_flex1]
+
+         
          var hip_range1 = hip_range
          var hip_ext1 = hip_ext
+         var hip_flex1 = hip_flex
+         var DOF_Hip = [hip_range1,hip_ext1,hip_flex1]
+
+         
          var ankle_range1 = ankle_range
          var ankle_ext1 = ankle_ext
          var ankle_flex1 = ankle_flex
-         var knee_flex1 = knee_flex
-         var hip_flex1 = hip_flex
+         var DOF_Ankle = [ankle_range1,ankle_ext1,ankle_flex1]
+         
+         
 
 
          //Limb Meassurements
-         var thigh_measrement1 = thigh_measrement
-         var lowerleg_measrement1 = lowerleg_measrement
-         var bicep_measrement1 = bicep_measrement
-         var Forearm1 = Forearm
+         var thigh_measrement1 = (thigh_measrement/12);
+         var lowerleg_measrement1 = (lowerleg_measrement/12);
+         var bicep_measrement1 = (bicep_measrement/12);
+         var Forearm1 = (Forearm/12);
+         var torso1 = (Torso/12);
                 
 
         
@@ -254,6 +271,14 @@
          var array5 = []  //user measurements
          var array6 = [] //Joint Ranges
          var array7 = [] //work weight ft-lbs
+                                         
+                            //Joint Force Arrays 
+         var Elbow_array = []  //Bicep and Tricep loads 
+         var knee_array = []   //Hamstring Loads
+         var hip_array = []    //Quad and Glute Loads
+         
+
+
          var ex1 = document.getElementById("exercise1")
          var ex2 = document.getElementById("exercise2")
          var ex3 = document.getElementById("exercise3")
@@ -276,7 +301,6 @@
          var weight1 = document.getElementById("weight1").value
          var rep2 = document.getElementById("rep2").value
          var set2 = document.getElementById("set2").value
-         var weight2 = document.getElementById("weight2").value
          var rep3 = document.getElementById("rep3").value
          var set3 = document.getElementById("set3").value
          var weight3 = document.getElementById("weight3").value
@@ -303,7 +327,6 @@
          var weight10 = document.getElementById("weight10").value
          var rep11 = document.getElementById("rep11").value
          var set11 = document.getElementById("set11").value
-         var weight11 = document.getElementById("weight11").value
          var rep12 = document.getElementById("rep12").value
          var set12 = document.getElementById("set12").value
          var weight12 = document.getElementById("weight12").value
@@ -323,6 +346,7 @@
 
 
          //Total Reps Performed 
+
          var trep1 = rep1 * set1
          var trep2 = rep2 * set2
          var trep3 = rep3 * set3
@@ -338,29 +362,168 @@
          var trep13 = rep13 * set13
          var trep14 = rep14 * set14
          var trep15 = rep15 * set15
-         
-         var hip_work1;
-         var hip_work2;
-         var thigh_work_weight;
-         var ankle_work1;
-         var thigh_work_leg;
-         
-         var bicep_work_weight;
-         var bicep_work_arm;
-         var tricep_work1;
+
+                      //Array Hip Work 
+        
+         var array_hip_load = []
+         var hip_tot1;
+         var hip_tot2;
+         var hip_tot3;
+         var hip_tot4;
+         var hip_tot5;
+         var hip_tot6;
+         var hip_tot7;
+         var hip_tot8;
+
+           
+                      //Array Knee Work 
+         var array_knee_load = []
+         var knee_tot1;
+         var knee_tot2;
+         var knee_tot3;
+         var knee_tot4;
+         var knee_tot5;
+         var knee_tot6;
+         var knee_tot7;
+         var knee_tot8;
+         var knee_tot9;
+
+             //Array Elbow Work
+         var array_elbow_load = []
+         var elbow_tot1;
+         var elbow_tot2;
+         var elbow_tot3;
+         var elbow_tot4;
+
+         //Back Load
+         var array_back_load = []
+
 
          
+
+            //Array Thigh Work to move weight
+         var thigh_weight = []    
+         var thigh_work_weight1;
+         var thigh_work_weight2;
+         var thigh_work_weight3;
+         var thigh_work_weight4;
+         var thigh_work_weight5;
+         var thigh_work_weight6;
+
+             //Array Thigh Work to move thigh leg 
+         var thigh_leg = []    
+         var thigh_work_leg1;
+         var thigh_work_leg2;
+         var thigh_work_leg3;
+         var thigh_work_leg4;
+         var thigh_work_leg5;
+         var thigh_work_leg6;
+         var thigh_work_leg7;
+         var thigh_work_leg8;
+
+
+         //Array shin Work to move lower leg 
+         var lowerleg_leg = []    
+         var lowerleg_work_leg1;
+         var lowerleg_work_leg2;
+         var lowerleg_work_leg3;
+         var lowerleg_work_leg4;
+         var lowerleg_work_leg5;
+         var lowerleg_work_leg6;
+         var lowerleg_work_leg7;
+         var lowerleg_work_leg8;
+         var lowerleg_work_leg9;
+         var lowerleg_work_leg10;
+         var lowerleg_work_leg11;
+
+         //Array shin Work to move weight on lower leg 
+         var lowerleg_weight= []    
+         var lowerleg_weight1;
+         var lowerleg_weight2;
+         var lowerleg_weight3;
+         var lowerleg_weight4;
+         var lowerleg_weight5;
+         var lowerleg_weight6;
+         var lowerleg_weight7;
+         var lowerleg_weight8;
+
+         //Forearm work to lift weight 
+         var forearm_weight= []    
+         var forearm_weight1;
+         var forearm_weight2;
+         var forearm_weight3;
+
+         //Forearm work to lift arm 
+         var forearm_arm= []    
+         var forearm_arm1;
+         var forearm_arm2;
+         var forearm_arm3;
+         var forearm_arm4;
+
+         //Quad Total Array 
+         var Quad_tot_cal = []
+         var Quad1;
+         var Quad2;
+         var Quad3;
+         var Quad4;
+         var Quad5;
+         var Quad6;
+         var Quad7;
+         var Quad8;
+
+         //Glute Total Array 
+         var Glute_tot_cal = []
+         var Glute1;
+         var Glute2;
+         var Glute3;
+         var Glute4;
+         var Glute5;
+         var Glute6;
+
+         //Abs Array 
+         var Abs = []
+
+         //Tricep Array 
+         var Tricep = []
+
+         //Back 
+         var Back = []
+         var Back_tot_cal = []
+
+         //Bicep Array
+         var Bicep = []
+
+         //Hamstring 
+         var Hamstring = []
+
+
+
          
-         
-         
-         var work_ft_lbs1;
-         var work_ft_lbs2;
-         var work_ft_lbs3;
-         var work_ft_lbs4;
-         var work_ft_lbs15;
+              //KJ lifted total  
+         var array_KJ = []
          var KJlifted;
          var KJlifted2;
          var KJlifted3;
+         var KJlifted4;
+         var KJlifted5;
+         var KJlifted6;
+         var KJlifted7;
+         var KJlifted8;
+         var KJlifted9;
+         var KJlifted10;
+         var KJlifted11;
+         var KJlifted12;
+         var KJlifted13;
+         var KJlifted14;
+         var KJlifted15;
+         var KJlifted16;
+         var KJlifted17;
+         var KJlifted18;
+         var KJlifted19;
+
+
+                //Kcal Burned   
+         var array_kcal = []  
          var Kcal1;
          var Kcal2;
          var Kcal3;
@@ -376,153 +539,446 @@
          var Kcal13;
          var Kcal14;
          var Kcal15;
+         var Kcal16;
+         var Kcal17;
+         var Kcal18;
+         var Kcal19;
 
+         //Joint Load Total 
 
+         var Joint_Load_Total;
+         var knee_load_per;
+         var elbow_load_per;
+         var hip_load_per;
 
-
-
-
+         //Muscle Load Total
+         var Muscle_Load_Total;
+         var Back_load_per;
+         var Quad_load_per;
+         var Hamstring_load_per;
+         var Bicep_load_per;
          
-
-
 
 
 
           //Exercise Work Total
           
-          if(ex1.checked){      //Hamstring Curl Selection
+            if(ex1.checked){      //Hamstring Curl Selection
              arrray2.push(ex1.value);
              array3.push(trep1,weight1);
-             array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,hip_work1);
-             array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
-             array6.push(knee_range,knee_ext,knee_flex);
-
-             thigh_work_weight = 2 * (((array5[1]*(array3[1]))/2)*(array6[1]*(3.14/180)))- .5 * (Math.sin((array6[2]*(3.14/180)))-Math.sin((array6[1]*(3.14/180))));
-             hip_work1 = 0;
-             ankle_work1 = 0;
-             thigh_work_leg = 2 * ((array5[1]/2)*array4[0]*array6[0]*(3.14/180)) - .5 * (Math.sin((array6[2]*(3.14/180)))-Math.sin((array6[1]*(3.14/180))));
-
-             work_ft_lbs1 =  (thigh_weight + hip_work1 + ankle_work1 + thigh_work_leg);
-             KJlifted = (0.0014 * work_ft_lbs1);
-             Kcal1 = array3[1] * (KJlifted * 0.239);
-            }else{
-                 Kcal1 = 0;
-            
-
-             array7.push(Math.round(Kcal1));
+             array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+             array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1,torso1);
              
 
-            }
-          if(ex2.checked){    //Abdominal Lying Leg Raise
-            arrray2.push(ex2.value);
-            
-            hip_work2 = ((.5 *thigh_measrement1*thigh_weight1)+((thigh_measrement1+(.5*lowerleg_measrement1))*lowerleg_weight1))*(-Math.cos((hip_flex1*(3.14/180)))+(Math.cos((hip_ext1*(3.14/180)))));
+             lowerleg_weight[0] = (2 * ((((array5[1]*(array3[1]))/2)*(DOF_Knee[1]))- .5 * (Math.sin((DOF_Knee[2]*(3.14/180)))-Math.sin((DOF_Knee[1]*(3.14/180))))));
+             
+             lowerleg_leg[0] = (2 * ((array5[1]/2)*array4[0]*DOF_Knee[0]*(3.14/180)) - .5 * (Math.sin((DOF_Knee[2]*(3.14/180)))-Math.sin((DOF_Knee[1]*(3.14/180)))));
 
+             array_knee_load[0] = lowerleg_weight[0]+ lowerleg_leg[0];
 
-            
-            work_ft_lbs3 = hip_work2;
-            KJlifted2 = (0.0014 * work_ft_lbs3);
-            Kcal2 = trep2 * (KJlifted2 * 0.239);
+             array_KJ[0] = (0.0014 * array_knee_load[0]);
+             array_kcal[0] = Math.round(trep1 * (array_KJ[0] * 0.239));
+             Hamstring[1] = array_kcal[0];
 
             }else{
-                 Kcal2 = 0;
+                
+                array_knee_load[0] = 0;
+                
+                array_KJ[0] = 0;
+                array_kcal[0] = 0;
+                Hamstring[1] = 0;
+            }
+            
+
+            if(ex2.checked){    //Abdominal Lying Leg Raise
+             arrray2.push(ex2.value);
+             array3.push(trep2);
+             array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+             array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1,torso1);
+             
+            
+             array_hip_load[0] = 2 * (((.5 *array5[0]*array4[2])+((array5[0]+(.5*array5[1]))*array4[0]))*(-Math.cos(DOF_Hip[2]*(3.14/180))+Math.cos((DOF_Hip[1]*(3.14/180)))));
+
+             array_KJ[1] = (0.0014 * array_hip_load[0]);
+             array_kcal[1] = Math.round(trep2 * (array_KJ[1] * 0.239));
+             Abs[0] = array_kcal[1];
+
+            }else{
+                array_hip_load[0] = 0;
+                array_KJ[1] = 0;
+                array_kcal[1] = 0;
+                Abs[0] = 0;
             }
              
-            if(ex3.checked){
-            arrray2.push(ex3.value);
+            if(ex3.checked){  //Cable Tricep Push Down 
+             arrray2.push(ex3.value);
+             array3.push(trep3,weight3);
+             array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+             array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1,torso1);
+             
+             array_elbow_load[0] = 2 * (((.5*array5[3])*array4[4])+(array5[3]*array3[1])) * (-Math.cos((DOF_Elbow[2]*(3.14/180)))+(Math.cos((DOF_Elbow[1]*(3.14/180)))));
 
-            tricep_work1 = (((.5 *Forearm1)*forearmweight1)+(Forearm1*weight3))*(-Math.cos((elbow_flex1*(3.14/180)))+(Math.cos((elbow_ext1*(3.14/180)))));
-
-
-            
-            work_ft_lbs4 = tricep_work1;
-            KJlifted3 = (0.0014 * work_ft_lbs4);
-            Kcal4 = trep3 * (KJlifted3 * 0.239);
+             array_KJ[2] = (0.0014 * array_elbow_load[0]);
+             array_kcal[2] = Math.round(trep3 * (array_KJ[2] * 0.239));
+             Tricep[0] = array_kcal[2];
 
             }else{
-                 Kcal4 = 0;
+                array_elbow_load[0] = 0;
+                array_KJ[2] = 0;
+                array_kcal[2] = 0;
+                Tricep[0] = 0;
             }
 
 
             
-            if(ex4.checked){
+            if(ex4.checked){      //Tricep Body Dips
                 arrray2.push(ex4.value);
-            }
-            if(ex5.checked){
-                arrray2.push(ex5.value);
-            }
-            if(ex6.checked){
-                arrray2.push(ex6.value);
+                array3.push(trep4,weight4);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1,torso1);
 
-                bicep_work_weight = 2 * (((Forearm1*(weight6))/2)*(elbow_range1*(3.14/180)))- .5 * (Math.sin((elbow_flex1*(3.14/180)))-Math.sin((elbow_ext1*(3.14/180))));
+                array_elbow_load[1] = 2 * ((array5[2] * ((array4[0]+array4[1]+array4[2]+array4[3]+(weight4))*(-Math.cos(DOF_Elbow[2]*(3.14/180)) + Math.cos(DOF_Elbow[1]*(3.14/180)))))*(-Math.cos(DOF_Elbow[2]*(3.14/180))+Math.cos(DOF_Elbow[1]*(3.14/180)))) + ((.5*array5[2])*array4[5]*(-Math.cos(DOF_Elbow[2]*(3.14/180))+Math.cos(DOF_Elbow[1]*(3.14/180))));
 
-                bicep_work_arm = 2 * ((Forearm1/2)*forearmweight1*elbow_range1*(3.14/180)) - .5 * (Math.sin((elbow_flex1*(3.14/180)))-Math.sin((elbow_ext1*(3.14/180))));
-
-             work_ft_lbs2 =  (bicep_work_weight + bicep_work_arm);
-             KJlifted = (0.0014 * work_ft_lbs2);
-             Kcal3 = trep6 * (KJlifted * 0.239);
-            }else{
-                 Kcal3 = 0;
-
-
-
-
-            }
-            if(ex7.checked){
-                arrray2.push(ex7.value);
-
-
-            }
-            if(ex8.checked){
-                arrray2.push(ex8.value);
-            }
-            if(ex9.checked){
-                arrray2.push(ex9.value);
+                array_KJ[3] = (0.0014 * array_elbow_load[1]);
+                array_kcal[3] = Math.round(trep4 * (array_KJ[3] * 0.239));
+                Tricep[1] = array_kcal[3];
 
                 
 
-
-
-
-            }
-            if(ex10.checked){
-                arrray2.push(ex10.value);
-            }
-            if(ex11.checked){
-                arrray2.push(ex11.value);
-            }
-            if(ex12.checked){
-                arrray2.push(ex12.value);
-            }
-            if(ex13.checked){
-                arrray2.push(ex13.value);
-            }
-            if(ex14.checked){
-                arrray2.push(ex14.value);
-            }
-            if(ex15.checked){
-                arrray2.push(ex15.value);
-
-             thigh_work_weight = 2 * (((lowerleg_measrement1*(weight15))/2)*(knee_range1*(3.14/180)))- .5 * (Math.sin((knee_flex*(3.14/180)))-Math.sin((knee_ext*(3.14/180))));
-             hip_work1 = 0;
-             ankle_work1 = 0;
-             thigh_work_leg = 2 * ((lowerleg_measrement1/2)*lowerleg_weight1*(knee_range1*(3.14/180))) - .5 * (Math.sin((knee_flex*(3.14/180)))-Math.sin((knee_ext*(3.14/180))));
-
-             work_ft_lbs15 =  (thigh_weight + hip_work1 + ankle_work1 + thigh_work_leg);
-             KJlifted = (0.0014 * work_ft_lbs15);
-             Kcal15 = trep15 * (KJlifted * 0.239);
             }else{
-                 Kcal15 = 0;
-            }
-           if(arrray2.length>0){
-            document.getElementById("p7").innerHTML = Math.round(Kcal1 + Kcal3 + Kcal15 + Kcal2 + Kcal4 );
-            
-            
+                array_kcal[3] = 0;
+                array_elbow_load[1] = 0;
+                array_KJ[3] = 0;
+                Tricep[1] = 0;
+                
 
-           }
-           else{
-           document.getElementById("p3").innerHTML = "You Dont have any thing";
-           }
+            }
+            if(ex5.checked){  //Trap Bar Deadlift
+                arrray2.push(ex5.value);
+                array3.push(trep5,weight5);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1,torso1);
+
+                // back weight
+                array_hip_load[1] =  ((torso1*array4[1])+(torso1*weight5)+(.5*torso1))*(-Math.cos(DOF_Hip[2] * (3.14/180))+Math.cos(DOF_Hip[1]*(3.14/180)))
+
+                array_knee_load[1] = 2 * ((((array_hip_load[1])*(-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))) * array5[0]) + ((.5*array5[0])*array4[2] * (-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))))
+
+                Back[0] = array_hip_load[1] * 0.0014;
+                Quad1 = array_knee_load[1] * 0.0014;
+                array_KJ[4] = Back[0] + Quad1;
+
+                //Back Calories
+                Back_tot_cal[0] = Math.round(trep5 * (Back[0] * 0.239));
+
+                //Quad Calories
+                Quad_tot_cal[5] = Math.round(trep5 * (Quad1 * 0.239));
+
+                array_kcal[4] = ((Back_tot_cal[0]+Quad_tot_cal[5])) ;
+
+            }else{
+                array_kcal[4] = 0;
+                array_hip_load[1] = 0;
+                array_knee_load[1] = 0;
+                Back_tot_cal[0] = 0;
+                Quad_tot_cal[5] = 0;
+
+            }
+            if(ex6.checked){  //Bicep Curls 
+
+                //Exercise Array
+                arrray2.push(ex6.value);
+                array3.push(trep6,weight6);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+
+                array_elbow_load[2] = 2 * (((.5*array5[3])*array4[4])+(array5[3]*weight6)) * (-Math.cos((DOF_Elbow[2]*(3.14/180)))+(Math.cos((DOF_Elbow[1]*(3.14/180)))));
+
+                array_KJ[5] = (0.0014 * array_elbow_load[2]);
+                array_kcal[5] = Math.round(trep6 * (array_KJ[5] * 0.239));
+                Bicep[0] = array_kcal[5];
+                
+                
+
+            }else{
+
+                array_kcal[5] = 0;
+                array_elbow_load[2] = 0;
+                Bicep[0] = 0;
+
+            }
+            if(ex7.checked){  //Single Leg DB Squat
+                arrray2.push(ex7.value);
+                array3.push(trep7,weight7);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+
+                // glute work
+                array_hip_load[2] =  -2 * ((torso1*array4[1])+(torso1*weight7)+(.5*torso1))*(-Math.cos((180-DOF_Hip[2]) * (3.14/180))+Math.cos((180-DOF_Hip[1])*(3.14/180)))
+
+                array_knee_load[2] = 2 * ((((array_hip_load[2])*(-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))) * array5[0]) + ((.5*array5[0])*array4[2] * (-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))))
+
+                Glute1 = array_hip_load[2] * 0.0014;
+                Quad2 = array_knee_load[2] * 0.0014;
+                array_KJ[6] = Glute1 + Quad2;
+
+                //Glute Calories
+                Glute_tot_cal[0] = Math.round(trep7 * (Glute1 * 0.239));
+
+                //Quad Calories
+                Quad_tot_cal[6] = Math.round(trep7 * (Quad2 * 0.239));
+
+                array_kcal[6] = ((Glute_tot_cal[0]+Quad_tot_cal[6]));
+
+            }else{
+
+             array_kcal[6] = 0;
+             array_hip_load[2] = 0;
+             array_knee_load[2] = 0;
+             Glute_tot_cal[0] = 0;
+             Quad_tot_cal[6] = 0;
+            }
+            if(ex8.checked){     //Single Leg Leg Press
+                arrray2.push(ex8.value);
+                array3.push(trep8,weight8);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+                
+                array_knee_load[3] = 2 * (((array5[1]*weight8)+(.5*array5[1]*array4[0]))*(Math.sin(DOF_Knee[2]*(3.14/180)-Math.sin(DOF_Knee[1]*(3.14/180)))));
+
+                array_hip_load[3] = 2 * (((array_knee_load[3]*(Math.sin(DOF_Knee[2]*(3.14/180))-Math.sin(DOF_Knee[1]*(3.14/180))))*array5[0]) * (Math.sin(DOF_Hip[2]*(3.14/180))-Math.sin((180-DOF_Hip[1])*(3.14/180))));
+
+                Glute2 = array_hip_load[3] * 0.0014;
+                Quad3 = array_knee_load[3] * 0.0014;
+                array_KJ[7] = Glute2 + Quad3;
+
+                //Glute Calories
+                Glute_tot_cal[1] = Math.round(trep8 * (Glute2 * 0.239));
+
+                //Quad Calories
+                Quad_tot_cal[7] = Math.round(trep8 * (Quad3 * 0.239));
+
+                array_kcal[7] = ((Glute_tot_cal[1]+Quad_tot_cal[7]));
+
+            }else{
+
+             array_kcal[7] = 0;
+             array_knee_load[3] = 0;
+             array_hip_load[3] = 0;
+             Glute_tot_cal[1] = 0;
+             Quad_tot_cal[7] = 0;
+
+
+            }
+            if(ex9.checked){    //DB Walking Lunges 
+                arrray2.push(ex9.value);
+                array3.push(trep9,weight9);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+
+                // glute work
+                array_hip_load[4] =  -2 * (((torso1*array4[1])+(torso1*weight9)+(.5*torso1))*(-Math.cos((180-DOF_Hip[2]) * (3.14/180))+Math.cos((180-DOF_Hip[1])*(3.14/180))))
+
+                array_knee_load[4] = 2 * ((((array_hip_load[4])*(-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))) * array5[0]) + ((.5*array5[0])*array4[2] * (-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))))
+
+                 Glute3 = array_hip_load[4] * 0.0014;
+                 Quad4 = array_knee_load[4] * 0.0014;
+                 array_KJ[8] = Glute3 + Quad4;
+
+                 //Glute Calories
+                 Glute_tot_cal[2] = Math.round(trep9 * (Glute3 * 0.239));
+
+                    //Quad Calories
+                    Quad_tot_cal[8] = Math.round(trep9 * (Quad4 * 0.239));
+
+                    array_kcal[8] = ((Glute_tot_cal[2]+Quad_tot_cal[8]));
+                    
+            }else{
+
+             array_kcal[8] = 0;
+             array_hip_load[4] = 0;
+             array_knee_load[4] = 0;
+             Glute_tot_cal[2] = 0;
+             Quad_tot_cal[8] = 0;
+
+
+            }
+            if(ex10.checked){            //Leg Extensions 
+                arrray2.push(ex10.value);
+                array3.push(trep10,weight10);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+
+                array_knee_load[5] = 2 * (((array5[1]*weight10)+(.5*array5[1]*array4[0]))*((Math.cos((DOF_Knee[2])*(3.14/180)))+(Math.cos(DOF_Knee[1]*(3.14/180)))));
+
+                Quad5 = array_knee_load[5] * 0.0014;
+                Quad_tot_cal[9] = Math.round(trep10 * (Quad5 * 0.239));
+                array_kcal[9] = Quad_tot_cal[9];
+
+            }else{
+
+               array_kcal[9] = 0;
+               array_knee_load[5] = 0;
+               Quad_tot_cal[9] = 0;
+
+            }
+            if(ex11.checked){           //Hanging Leg Raises 
+                arrray2.push(ex11.value);
+                array3.push(trep11);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+
+                array_hip_load[5] = -2 * (((.5 *array5[0]*array4[2])+((array5[0]+(.5*array5[1]))*array4[0]))*(-Math.cos(DOF_Hip[1]*(3.14/180))+Math.cos((DOF_Hip[2]*(3.14/180)))));
+
+                array_KJ[9] = (0.0014 * array_hip_load[5]);
+                array_kcal[10] = Math.round(trep11 * (array_KJ[9] * 0.239));
+                Abs[1] = array_kcal[10];
+
+
+   
+                
+
+
+            }else{
+                 array_kcal[10] = 0;
+                 array_hip_load[5] = 0;
+                 Abs[1] = 0;
+
+            }
+            if(ex12.checked){     //Overhead Tricep Extension 
+                arrray2.push(ex12.value);
+                array3.push(trep12,weight12);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+
+                array_elbow_load[3] = 2 * (((array5[3]*weight12)+(.5*array5[3]*array4[4]))*((-(Math.cos((DOF_Elbow[2])*(3.14/180)))+(Math.cos(DOF_Elbow[1]*(3.14/180))))));
+
+                Tricep[2] = array_elbow_load[3] * 0.0014;
+
+                array_kcal[11] = Math.round(trep12 * (Tricep[2] * 0.239));
+                
+
+            }else{
+
+                array_kcal[11] = 0;
+                array_elbow_load[3] = 0;
+                Tricep[2] = 0;
+                 
+            }
+            if(ex13.checked){         //Barbell Squat
+                arrray2.push(ex13.value);
+                array3.push(trep13,weight13);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+
+                // glute work
+                array_hip_load[6] =  2 * ((torso1*array4[1])+(torso1*weight13)+(.5*torso1))*(-Math.cos((DOF_Hip[2]) * (3.14/180))+Math.cos((DOF_Hip[1])*(3.14/180)))
+
+                array_knee_load[6] = 2 * ((((array_hip_load[6])*(-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))) * array5[0]) + ((.5*array5[0])*array4[2] * (-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))))
+
+                Glute4 = array_hip_load[6] * 0.0014;
+                Quad6 = array_knee_load[6] * 0.0014;
+                array_KJ[10] = Glute4 + Quad6;
+
+                //Glute Calories
+                Glute_tot_cal[3] = Math.round(trep13 * (Glute4 * 0.239));
+
+                //Quad Calories
+                Quad_tot_cal[10] = Math.round(trep13 * (Quad6 * 0.239));
+
+                array_kcal[12] = ((Glute_tot_cal[3]+Quad_tot_cal[10]));
+
+            }else{
+
+             array_kcal[12] = 0;
+             array_hip_load[6] = 0;
+             array_knee_load[6] = 0;
+             Glute_tot_cal[3] = 0;
+             Quad_tot_cal[10] = 0;
+                
+            }
+            if(ex14.checked){           //DB Step Ups
+                arrray2.push(ex14.value);
+                array3.push(trep14,weight14);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+
+                // glute work
+                array_hip_load[7] =  2 * ((torso1*array4[1])+(torso1*weight14)+(.5*torso1))*(-Math.cos((DOF_Hip[2]) * (3.14/180))+Math.cos((DOF_Hip[1])*(3.14/180)))
+
+                array_knee_load[7] = 2 * ((((array_hip_load[7])*(-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))) * array5[0]) + ((.5*array5[0])*array4[2] * (-Math.cos(DOF_Knee[2] * (3.14/180))+Math.cos(DOF_Knee[1]*(3.14/180)))))
+
+                Glute5 = array_hip_load[7] * 0.0014;
+                Quad7 = array_knee_load[7] * 0.0014;
+                array_KJ[11] = Glute5 + Quad7;
+
+                //Glute Calories
+                Glute_tot_cal[4] = Math.round(trep14 * (Glute5 * 0.239));
+
+                //Quad Calories
+                Quad_tot_cal[11] = Math.round(trep14 * (Quad7 * 0.239));
+
+                array_kcal[13] = ((Glute_tot_cal[4]+Quad_tot_cal[11]));
+
+            }else{
+
+             array_kcal[13] = 0;
+             array_hip_load[7] = 0;
+             array_knee_load[7] = 0;
+             Glute_tot_cal[4] = 0;
+             Quad_tot_cal[11] = 0;
+                
+            }
+            if(ex15.checked){              //Seated Leg Curl 
+                arrray2.push(ex15.value);
+                array3.push(trep15,weight15);
+                array4.push(lowerleg_weight1,headweight1,thigh_weight1,torso_weight1,forearmweight1,bicep_weight1);
+                array5.push(thigh_measrement1,lowerleg_measrement1,bicep_measrement1,Forearm1)
+
+                array_knee_load[8] = 2 * (((.5*array5[1])*array4[0])+(array5[1]*weight15)) * (-Math.cos((DOF_Knee[2]*(3.14/180)))+(Math.cos((DOF_Knee[1]*(3.14/180)))));
+
+                array_KJ[12] = (0.0014 * array_knee_load[8]);
+                array_kcal[14] = Math.round(trep15 * (array_KJ[12] * 0.239));
+                Hamstring[0] = array_kcal[14];
+                
+
+  
+            }else{
+                array_kcal[14] = 0;
+                array_knee_load[8] = 0;
+                Hamstring[0] = 0;
+            }
+            if(arrray2.length>0){
+
+                document.getElementById("p7").innerHTML = (array_kcal[0] + array_kcal[1] + array_kcal[2] + array_kcal[3] + array_kcal[4] + array_kcal[5] + array_kcal[6] + array_kcal[7] + array_kcal[8] + array_kcal[9] + array_kcal[10] + array_kcal[11] + array_kcal[12] + array_kcal[13] + array_kcal[14]) + "   KCalories";
+
+                document.getElementById("Joint total").innerHTML = Math.round((array_knee_load[0] + array_hip_load[0] + array_elbow_load[0] + array_elbow_load[1] + array_hip_load[1] + array_elbow_load[2] + array_hip_load[2] + array_knee_load[2] + array_knee_load[3] + array_hip_load[3] + array_hip_load[4] + array_knee_load[4] + array_knee_load[5] +  array_hip_load[5] + array_elbow_load[3] + array_hip_load[6] + array_knee_load[6] + array_hip_load[7] + array_knee_load[7] + array_knee_load[8] + array_knee_load[1]) + " %");
+
+                document.getElementById("elbow_joint").innerHTML = Math.round(((array_elbow_load[0] + array_elbow_load[1] + array_elbow_load[2] + array_elbow_load[3])/(array_knee_load[0] + array_hip_load[0] + array_elbow_load[0] + array_elbow_load[1] + array_hip_load[1] + array_elbow_load[2] + array_hip_load[2] + array_knee_load[2] + array_knee_load[3] + array_hip_load[3] + array_hip_load[4] + array_knee_load[4] + array_knee_load[5] +  array_hip_load[5] + array_elbow_load[3] + array_hip_load[6] + array_knee_load[6] + array_hip_load[7] + array_knee_load[7] + array_knee_load[8] + array_knee_load[1]))*100)  + " %";
+
+                document.getElementById("hip_joint").innerHTML = Math.round(((array_hip_load[0] + array_hip_load[1] + array_hip_load[2] + array_hip_load[3] + array_hip_load[4] + array_hip_load[5] + array_hip_load[6] + array_hip_load[7])/(array_knee_load[0] + array_hip_load[0] + array_elbow_load[0] + array_elbow_load[1] + array_hip_load[1] + array_elbow_load[2] + array_hip_load[2] + array_knee_load[2] + array_knee_load[3] + array_hip_load[3] + array_hip_load[4] + array_knee_load[4] + array_knee_load[5] +  array_hip_load[5] + array_elbow_load[3] + array_hip_load[6] + array_knee_load[6] + array_hip_load[7] + array_knee_load[7] + array_knee_load[8] + array_knee_load[1])) * 100)  + " %";
+
+                document.getElementById("knee_joint").innerHTML = Math.round(((array_knee_load[0]+array_knee_load[1]+array_knee_load[2]+array_knee_load[3]+array_knee_load[4] + array_knee_load[5]+array_knee_load[6]+array_knee_load[7] + array_knee_load[8])/(array_knee_load[0] + array_hip_load[0] + array_elbow_load[0] + array_elbow_load[1] + array_hip_load[1] + array_elbow_load[2] + array_hip_load[2] + array_knee_load[2] + array_knee_load[3] + array_hip_load[3] + array_hip_load[4] + array_knee_load[4] + array_knee_load[5] +  array_hip_load[5] + array_elbow_load[3] + array_hip_load[6] + array_knee_load[6] + array_hip_load[7] + array_knee_load[7] + array_knee_load[8] + array_knee_load[1])) * 100)  + " %";
+
+                document.getElementById("BicepCal").innerHTML = (Bicep[0]) + "   KCalories";
+
+                document.getElementById("TricepCal").innerHTML = (Tricep[0]+Tricep[1]+array_kcal[11]) + "   KCalories";
+
+                document.getElementById("QuadCal").innerHTML = (Quad_tot_cal[5]+Quad_tot_cal[6]+Quad_tot_cal[7]+Quad_tot_cal[8]+Quad_tot_cal[9]+Quad_tot_cal[10]+Quad_tot_cal[11]) + "   KCalories";
+
+                document.getElementById("HamCal").innerHTML = (Hamstring[0]+Hamstring[1]) + "   KCalories";
+
+                document.getElementById("GluteCal").innerHTML = (Glute_tot_cal[4]+Glute_tot_cal[3]+Glute_tot_cal[2]+Glute_tot_cal[1]+Glute_tot_cal[0]) + "   KCalories";
+
+                document.getElementById("AbCal").innerHTML = (Abs[0]+Abs[1]) + "   KCalories";
+
+                document.getElementById("BackCal").innerHTML = (Back_tot_cal[0]) + "   KCalories";
+
+                
+
+            }else{
+            document.getElementById("p3").innerHTML = "No Workouts Selected";
+            }
 
             
 
@@ -686,30 +1142,28 @@
             
 
     
-    <div class="selection1">
+        <div class="selection1">
          <input type="checkbox" id="exercise1" name="ex1" value="Hamstring Curl">Hamstring Curl<br/>  
          <p1>Sets</p1>
-         <input type="number" id="set1"><br/>
+         <input type="number" id="set1"><br/><br/>
          <p1>Reps</p1>
          <input type="number" id="rep1"><br/><br/>
          <p1>Weight</p1>
          <input type="number" id="weight1"><br/><br/>
-    </div>
+        </div>
         
         <div class="selection2">
-         <input type="checkbox" id="exercise2" name="ex2" value="Abdominal Lying Leg Raise" > Abdominal Lying Leg Raise<br/>
+         <input type="checkbox" id="exercise2" name="ex2" value="Abdominal Lying Leg Raise" > Ab. Lying Leg Raise<br/>
          <p1>Sets</p1>
-         <input type="number" id="set2"><br/>
+         <input type="number" id="set2"><br/><br/>
          <p1>Reps</p1>
          <input type="number" id="rep2"><br/><br/>
-         <p1>Weight</p1>
-         <input type="number" id="weight2"><br/><br/>
         </div>
         
         <div class="selection3">
-            <input type="checkbox" id="exercise3" name="ex3" value="Cable Tricep Push Down" >  Cable Tricep Push Down<br/>
+            <input type="checkbox" id="exercise3" name="ex3" value="Cable Tricep Push Down" >  Tricep Push Down<br/>
             <p1>Sets</p1>
-            <input type="number" id="set3"><br/>
+            <input type="number" id="set3"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep3"><br/><br/>
             <p1>Weight</p1>
@@ -719,7 +1173,7 @@
         <div class="selection4">
             <input type="checkbox" id="exercise4" name="ex4" value="Bodyweight Tricep Dips" >  Bodyweight Tricep Dips<br/>
             <p1>Sets</p1>
-            <input type="number" id="set4"><br/>
+            <input type="number" id="set4"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep4"><br/><br/>
             <p1>Weight</p1>
@@ -729,7 +1183,7 @@
         <div class="selection5">
             <input type="checkbox" id="exercise5" name="ex5" value="Trap Bar Deadlift" > Trap Bar Deadlift<br/>
             <p1>Sets</p1>
-            <input type="number" id="set5"><br/>
+            <input type="number" id="set5"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep5"><br/><br/>
             <p1>Weight</p1>
@@ -739,7 +1193,7 @@
         <div class="selection6">
             <input type="checkbox" id="exercise6" name="ex6" value="Bicep Curls" >  Bicep Curls<br/>
             <p1>Sets</p1>
-            <input type="number" id="set6"><br/>
+            <input type="number" id="set6"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep6"><br/><br/>
             <p1>Weight</p1>
@@ -750,7 +1204,7 @@
         <div class="selection7">
             <input type="checkbox" id="exercise7" name="ex7" value="Single Leg DB Squat" >  Single Leg DB Squat<br/>
             <p1>Sets</p1>
-            <input type="number" id="set7"><br/>
+            <input type="number" id="set7"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep7"><br/><br/>
             <p1>Weight</p1>
@@ -760,7 +1214,7 @@
         <div class="selection8">
             <input type="checkbox" id="exercise8" name="ex8" value="Single Leg Leg Press" > Single Leg Leg Press<br/>
             <p1>Sets</p1>
-            <input type="number" id="set8"><br/>
+            <input type="number" id="set8"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep8"><br/><br/>
             <p1>Weight</p1>
@@ -770,7 +1224,7 @@
         <div class="selection9">
             <input type="checkbox" id="exercise9" name="ex9" value="DB Walking Lunges" > DB Walking Lunges<br/>
             <p1>Sets</p1>
-            <input type="number" id="set9"><br/>
+            <input type="number" id="set9"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep9"><br/><br/>
             <p1>Weight</p1>
@@ -780,7 +1234,7 @@
         <div class="selection10">
             <input type="checkbox" id="exercise10" name="ex10" value="Leg Extensions" > Leg Extensions<br/>
             <p1>Sets</p1>
-            <input type="number" id="set10"><br/>
+            <input type="number" id="set10"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep10"><br/><br/>
             <p1>Weight</p1>
@@ -790,17 +1244,15 @@
         <div class="selection11">
             <input type="checkbox" id="exercise11" name="ex11" value="Hanging Leg Raises" > Hanging Leg Raises<br/>
             <p1>Sets</p1>
-            <input type="number" id="set11"><br/>
+            <input type="number" id="set11"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep11"><br/><br/>
-            <p1>Weight</p1>
-            <input type="number" id="weight11"><br/><br/>
         </div>
         
         <div class="selection12">
-            <input type="checkbox" id="exercise12" name="ex12" value="Overhead Tricep Extension" > Overhead Tricep Extension<br/>
+            <input type="checkbox" id="exercise12" name="ex12" value="Overhead Tricep Extension" > Overhead Tricep Ext<br/>
             <p1>Sets</p1>
-            <input type="number" id="set12"><br/>
+            <input type="number" id="set12"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep12"><br/><br/>
             <p1>Weight</p1>
@@ -810,7 +1262,7 @@
         <div class="selection13">
             <input type="checkbox" id="exercise13" name="ex13" value="Barbell Squat" > Barbell Squat<br/>
             <p1>Sets</p1>
-            <input type="number" id="set13"><br/>
+            <input type="number" id="set13"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep13"><br/><br/>
             <p1>Weight</p1>
@@ -821,7 +1273,7 @@
         <div class="selection14">
             <input type="checkbox" id="exercise14" name="ex14" value="DB Step Ups" > DB Step Ups<br/>
             <p1>Sets</p1>   
-            <input type="number" id="set14"><br/>
+            <input type="number" id="set14"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep14"><br/><br/>
             <p1>Weight</p1>
@@ -831,53 +1283,101 @@
         <div class="selection15">
             <input type="checkbox" id="exercise15" name="ex15" value="Seated Leg Curl" > Seated Leg Curl<br/>
             <p1>Sets</p1>
-            <input type="number" id="set15"><br/>
+            <input type="number" id="set15"><br/><br/>
             <p1>Reps</p1>
             <input type="number" id="rep15"><br/><br/>
             <p1>Weight</p1>
             <input type="number" id="weight15"><br/><br/>
-        </div>
+     </div>
 
-        <form name="sex">
+    
+
+        <div class="resulted_butt">
+          <center>
+         <div class="genders">
+          <form name="sex">
             <select name="genderselect">
                 <option>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-        </form>
-        <button onclick="getgender()">Submit</button>
+          </form>
+         </div><br>
+      
+         <button onclick="getgender()">Submit Data</button><br>
 
-        <label id="option1"></label><br><br/>  <!--Gender selection id-->
-        <label id="result"></label><br><br/>
+         <label id="option1"></label><br><br/>  <!--Gender selection id-->
+         <label id="result"></label><br>
+
+         </center>
+         
+        </div>
 
         
-
-        
-
-     
-     <button  onclick="getage()">Joint Work</button>
-
-     <p>Expected Calories Burned From Workout</p>
-     <p2 id="p7"></p2><br>
-     <!--<button onclick="getValue()">Get Value</button>
-     <p id="p2"></p>-->
-    </center>
-
-   
-
-    
-    
-
-    
-
- 
+        </center>
+    </div>
+          
             
+        <div class="joint_analysis">
+            
+         <button  onclick="getage()">Analyze!</button><br>
+         <h1>Expected Calories to Burned From Workout</h1>
+         <p2 id="p7"></p2><br>
+         <p12 id="Joint total"></p12><br>
+         
 
+         <h2>Joint Load Analysis</h2>
+         
+         <p2>This joint analysis shows how your workout is effecting your joints the most and allows you to see just where the most joint strain is being applied. Our Bio-Mech Metrics analysis allows you to adjust your workout accordingly to account for weak points due to things such as previous injuries, soreness, or tendonitis at specific locations</p2><br>
+        </div>
+             
 
+        <div class="joint_results">
+           <h2>Elbow Load</h2><br>
+           <p3 id="elbow_joint"></p3>
 
-    
-    
-   
+          <h2>Hip Load</h2><br>
+          <p3 id="hip_joint"></p3>
+
+          <h2>Knee Load</h2><br>
+          <p3 id="knee_joint"></p3>
+        </div>
+        
+
+         <h2>Muscle Load Analysis</h2>
+         
+         <p2>The muscle load analysis lets you see exactly where the calories are being burned and which specific muscles are being worked.  This will allow you to plan your workouts according to your fitness goals.  Whether its strengthening your quads, toning your hamstrings or growing your biceps</p2><br>
+         
+         <h2>Bicep Caloric Burn</h2>
+         <p2 id="BicepCal"></p2><br>
+
+         <h2>Tricep Caloric Burn</h2>
+         <p2 id="TricepCal"></p2><br>
+
+         <h2>Quadricep Caloric Burn</h2>
+         <p2 id="QuadCal"></p2><br><br><br>
+
+         <h2>Hamstring Caloric Burn</h2>
+         <p2 id="HamCal"></p2><br><br><br>
+
+         <h2>Glutes Caloric Burn</h2>
+         <p2 id="GluteCal"></p2><br><br><br>
+
+         <h2>Abdominal Caloric Burn</h2>
+         <p2 id="AbCal"></p2><br><br><br>
+
+         <h2>Lower Back Caloric Burn</h2>
+         <p2 id="BackCal"></p2><br><br><br>
+
+         
+         <!--<button onclick="getValue()">Get Value</button>
+         <p id="p2"></p>-->
+
+         
+         
+        
+
+         
 
 </body>
 
@@ -891,102 +1391,148 @@
     margin: 0;
 }
 
-.p {
-    font-weight: 200;
-    font-style: oblique;
-    font-size: large;
-}
+
 
 h1 {
     font-size: medium;
 }
 
+
+
 label {
     padding-left: 2rem;
 }
 
-p1 {
+.p1 {
     padding-left: 2rem;
+    font-size: 1rem;
 }
+
+
+
+
+.joint_results{
+    
+    display: inline-flex;
+    padding-inline-start: 2rem;
+    justify-content: space-evenly;
+    
+    
+}
+
+.joint_results h2 {
+    padding-left: 5rem;
+    font-size: medium;
+    padding-top: 2rem;
+}
+
+p3 {
+    font-size: medium;
+    margin-left: auto;
+
+}
+
+.p2 {
+    display: inline-flex;
+    font-style: inherit;
+    
+}
+
+p12 {
+    color: rgb(255, 255, 255);
+}
+
 
 
 
 .selection {
     
         display: grid;
-        grid-template-columns: 200px 200px 200px;  
-        grid-template-rows: 140px 140px 140px 140px;
+        grid-template-columns: 150px 150px 150px;  
+        grid-template-rows: 125px 125px 125px ;
         grid-gap: 1rem;
         font-family: 'Lato';
         text-align: center;
-        font-size: 1em;
-        margin: 40px 30px;
+        font-size: 1rem;
+        margin: 5px 5px;
         justify-content: center;
+        margin-left: 2rem;
         
-        
-      
     
-    
-    
+}
+
+
+
+.resulted_butt{
+    margin-left: 21rem;
+    width: fit-content;
+}
+
+.genders{
+    justify-content: center;
 }
 
 .Age_Select  {
-    font-size: 3rem;
+    font-size: 1rem;
     background-color: red;
     width: fit-content;
     border-radius: 2rem;
-    height: 5rem;
+    height: .75rem;
     font: bold;
+    margin-bottom: 3rem;
 }
 
+
+
 .Age_Select select {
-    font-size: x-large;
+    font-size: medium;
+    margin-bottom: 5rem;
 }
 
 .selection15 input {
-    width: 33%;
+    width: 20%;
 }
 
 .selection14 input {
-    width: 33%;
+    width: 20%;
 }
 .selection13 input {
-    width: 33%;
+    width: 20%;
 }
 .selection12 input {
-    width: 33%;
+    width: 20%;
 }
 .selection11 input {
-    width: 33%;
+    width: 20%;
 }.selection10 input {
-    width: 33%;
+    width: 20%;
 }
 .selection9 input {
-    width: 33%;
+    width: 20%;
 }
 .selection8 input {
-    width: 33%;
+    width: 20%;
 }
 .selection7 input {
-    width: 33%;
+    width: 20%;
 }
 .selection6 input {
-    width: 33%;
+    width: 20%;
 }
 .selection5 input {
-    width: 33%;
+    width: 20%;
 }
 .selection4 input {
-    width: 33%;
+    width: 20%;
 }
 .selection3 input {
-    width: 33%;
+    width: 20%;
 }
 .selection2 input {
-    width: 33%;
+    width: 20%;
 }
 .selection1 input {
-    width: 33%;
+   width: 20%;
 }
 
 .exercise {
