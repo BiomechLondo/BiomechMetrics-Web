@@ -1119,10 +1119,10 @@
        
 
         <div class="dimensions Lower">
-         <p1>Thigh (Waist to Knee) (in)</p1><br/>
+         <p1>Thigh (Waist to Knee Cap) (in)</p1><br/>
          <input type="number" id="femur"><br/><br/>   <!--Upper Leg-->
 
-         <p1>Lower Leg (Knee to Ankle) (in)</p1><br/>
+         <p1>Lower Leg (Knee to Ankle Joint) (in)</p1><br/>
          <input type="number" id="tibia"><br/><br/>   <!--Lower Leg-->
         </div>
         <!--Save this user date to local/global storage-->
@@ -1171,7 +1171,7 @@
         </div>
         
         <div class="selection4">
-            <input type="checkbox" id="exercise4" name="ex4" value="Bodyweight Tricep Dips" >  Bodyweight Tricep Dips<br/>
+            <input type="checkbox" id="exercise4" name="ex4" value="Bodyweight Tricep Dips" >  Tricep Dips<br/>
             <p1>Sets</p1>
             <input type="number" id="set4"><br/><br/>
             <p1>Reps</p1>
@@ -1445,12 +1445,12 @@ p12 {
 
 
 
-.selection {
+.selection {      /*Workout Selection Grid*/
     
         display: grid;
         grid-template-columns: 150px 150px 150px;  
         grid-template-rows: 125px 125px 125px ;
-        grid-gap: 1rem;
+        grid-gap: .5rem;
         font-family: 'Lato';
         text-align: center;
         font-size: 1rem;
@@ -1537,6 +1537,10 @@ p12 {
 
 .exercise {
     padding-top: 15rem;
+}
+
+.checkbox {
+    size: 1rem;
 }
 
 </style>
